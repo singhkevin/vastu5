@@ -178,13 +178,6 @@ $changeLogEntries = [
         ],
     ],
     [
-        'timestamp' => '2026-04-14 12:52:00',
-        'title' => 'Log display adjusted to date-only',
-        'items' => [
-            'Updated /log timestamp rendering to show date only (time hidden) as requested.',
-        ],
-    ],
-    [
         'timestamp' => '2026-04-14 12:39:00',
         'title' => 'Footer visibility restored globally',
         'items' => [
