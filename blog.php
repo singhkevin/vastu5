@@ -8,7 +8,7 @@ $page_canonical = 'https://vastu5.com/blog.php';
 require __DIR__ . '/require/header.php';
 ?>
 
-<section class="ast_toppadder70 ast_bottompadder70" style="background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
+<section class="ast_toppadder70 ast_bottompadder70 blog-content-shell" style="margin-top: 24px; clear: both; background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
   <div class="container">
     <div class="ast_heading text-center mb-5">
       <h1>Vastu5 Blog</h1>

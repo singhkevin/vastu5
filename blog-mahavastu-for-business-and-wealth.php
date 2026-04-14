@@ -8,14 +8,15 @@ $page_canonical = 'https://vastu5.com/blog-mahavastu-for-business-and-wealth.php
 require __DIR__ . '/require/header.php';
 ?>
 
-<section class="ast_toppadder70 ast_bottompadder70" style="background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
+<section class="ast_toppadder70 ast_bottompadder70 blog-content-shell" style="margin-top: 24px; clear: both; background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
   <div class="container">
-    <div class="ast_heading text-center mb-4">
+    <div class="blog-article-wrap">
+    <div class="ast_heading text-center mb-4 blog-article-head">
       <h1>MahaVastu for Business and Wealth</h1>
       <p><strong>How practical MahaVastu alignment supports business clarity, stability, and financial flow.</strong></p>
     </div>
 
-    <article style="max-width: 920px; margin: 0 auto; background: #fff; border: 1px solid #f2ddbf; border-radius: 12px; padding: 26px;">
+    <article class="blog-article-card">
       <p><strong>MahaVastu</strong> is often misunderstood as a decorative or symbolic adjustment, but in business environments it works as a practical system for aligning activities with directional energy. When <strong>MahaVastu</strong> is applied correctly in offices, shops, clinics, and factories, teams usually notice better focus, smoother communication, and more consistent execution.</p>
 
       <p>The key idea in <strong>MahaVastu</strong> is that outcomes are influenced by how you use space, not just by the layout itself. A conference zone, finance desk, founder cabin, storage area, and client-facing section each carry different functional energy. If these functions are misaligned, daily effort can feel high while results remain unstable. With <strong>MahaVastu</strong>, the goal is to bring directional support to each critical business activity.</p>
@@ -45,6 +46,7 @@ require __DIR__ . '/require/header.php';
         <a class="ast_btn" href="blog.php" style="margin-left: 8px;">Back to Blog</a>
       </p>
     </article>
+    </div>
   </div>
 </section>
 

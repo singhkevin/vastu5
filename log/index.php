@@ -12,6 +12,96 @@ $timezone = new DateTimeZone('Asia/Kolkata');
  */
 $changeLogEntries = [
     [
+        'timestamp' => '2026-04-14 14:36:00',
+        'title' => 'Added top space above blog article H1',
+        'items' => [
+            'Applied explicit top padding to blog-article-head so H1 has visible space above it.',
+            'Clarified separation between heading block spacing and article card padding.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 14:31:00',
+        'title' => 'Blog title/subtitle paragraph spacing fix',
+        'items' => [
+            'Overrode legacy float-based heading styles for blog article heading block.',
+            'Normalized title and subtitle spacing/alignment for clean vertical rhythm.',
+            'Removed extra top gap before the first body paragraph in article card.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 14:23:00',
+        'title' => 'MahaVastu article layout normalization',
+        'items' => [
+            'Moved article heading and content into a shared 920px wrapper for consistent width alignment.',
+            'Replaced inline article styles with dedicated CSS classes for predictable sizing and spacing.',
+            'Added responsive typography and padding rules so all article content fits cleanly on mobile and desktop.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 14:14:00',
+        'title' => 'Reduced top gap on blog article section',
+        'items' => [
+            'Lowered blog-content-shell top margin across breakpoints.',
+            'Overrode ast_toppadder70 for blog shell to reduce excessive top padding above article card.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 14:06:00',
+        'title' => 'Article heading top padding adjusted',
+        'items' => [
+            'Increased top padding inside MahaVastu article card to balance heading gap with side spacing.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 14:02:00',
+        'title' => 'Reduced blog top offset on mobile',
+        'items' => [
+            'Lowered mobile blog-content-shell margin-top values to reduce excess top gap while keeping header clearance.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 13:56:00',
+        'title' => 'Mobile blog/menu overlap resolved',
+        'items' => [
+            'Added dedicated blog-content-shell class for blog listing and article pages.',
+            'Applied mobile-specific top margin offsets so blog content clears top header + menu bars.',
+            'Prevented article text from appearing under the menu region on small screens.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 13:49:00',
+        'title' => 'Blog header/content overlap spacing fix',
+        'items' => [
+            'Added top offset and clear-both behavior to blog listing and article sections.',
+            'Ensured blog content starts below the mobile header region instead of visually colliding with it.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 13:42:00',
+        'title' => 'FAQ card size and placement normalized',
+        'items' => [
+            'Replaced inline FAQ card styles with dedicated faq-section / faq-list / faq-item classes.',
+            'Added CSS safeguards to prevent inherited float-based styles from stretching FAQ card heights.',
+            'Ensured FAQ block uses clean auto height and proper spacing below the map section.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 13:35:00',
+        'title' => 'Contact map overlap layout fix',
+        'items' => [
+            'Resolved map/form overlap behavior by moving contact form into normal flow (non-absolute positioning).',
+            'Removed artificial top padding dependency from .ast_contact_map and ensured map iframe scales cleanly.',
+            'Added spacing below contact/map wrapper to keep FAQ section visually separated.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 13:28:00',
+        'title' => 'FAQ section spacing fix under map',
+        'items' => [
+            'Added top margin to the FAQ section on homepage so it no longer sticks to the map block above.',
+        ],
+    ],
+    [
         'timestamp' => '2026-04-14 13:18:00',
         'title' => 'On-page and technical SEO batch applied',
         'items' => [

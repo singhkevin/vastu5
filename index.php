@@ -1154,24 +1154,24 @@ showSlide(currentSlide);
 </div>
 <!--Content Us End-->
 
-<section class="ast_toppadder70 ast_bottompadder70" style="background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
+<section class="ast_toppadder70 ast_bottompadder70 faq-section" style="margin-top: 36px; background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
   <div class="container">
     <div class="ast_heading text-center mb-5">
       <h2>Frequently Asked Questions</h2>
       <p><strong>Quick answers about MahaVastu consultations and practical corrections.</strong></p>
     </div>
-    <div style="max-width: 960px; margin: 0 auto;">
-      <div style="background:#fff; border:1px solid #f2ddbf; border-radius:10px; padding:18px; margin-bottom:12px;">
+    <div class="faq-list">
+      <div class="faq-item">
         <h4>What is MahaVastu and how does it help in real life?</h4>
-        <p style="margin-bottom:0;">MahaVastu helps align activities, utilities, and objects with directional energy so your space supports better decisions, stability, and daily outcomes.</p>
+        <p>MahaVastu helps align activities, utilities, and objects with directional energy so your space supports better decisions, stability, and daily outcomes.</p>
       </div>
-      <div style="background:#fff; border:1px solid #f2ddbf; border-radius:10px; padding:18px; margin-bottom:12px;">
+      <div class="faq-item">
         <h4>Do I need demolition for Vastu corrections?</h4>
-        <p style="margin-bottom:0;">In most cases, no. Vastu5 prioritizes non-demolition corrections using practical repositioning and functional alignment.</p>
+        <p>In most cases, no. Vastu5 prioritizes non-demolition corrections using practical repositioning and functional alignment.</p>
       </div>
-      <div style="background:#fff; border:1px solid #f2ddbf; border-radius:10px; padding:18px;">
+      <div class="faq-item">
         <h4>Can I get business or office Vastu consultation?</h4>
-        <p style="margin-bottom:0;">Yes. Business consultations focus on leadership zones, financial flow, operational clarity, and team productivity through practical MahaVastu methods.</p>
+        <p>Yes. Business consultations focus on leadership zones, financial flow, operational clarity, and team productivity through practical MahaVastu methods.</p>
       </div>
     </div>
   </div>
