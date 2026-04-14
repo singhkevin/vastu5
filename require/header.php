@@ -1,13 +1,45 @@
+<?php
+$docTitle = $page_title ?? 'Vastu Consultant & Expert | Vastu for Home & Business | Vastu5';
+$docDescription = $page_meta_description ?? 'Vastu consultant and vastu expert services for home and business by Swikar Sethi at Vastu5.';
+$docCanonical = $page_canonical ?? 'https://vastu5.com/';
+$docOgImage = $page_og_image ?? 'https://vastu5.com/images/new/new_banner_2.jpg';
+$docOgType = $page_og_type ?? 'website';
+$docJsonLd = $page_json_ld ?? json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'ProfessionalService',
+    'name' => 'Vastu5',
+    'url' => 'https://vastu5.com/',
+    'telephone' => '+91-9316918385',
+    'email' => 'swikar.sethi@vastu5.com',
+    'address' => [
+        '@type' => 'PostalAddress',
+        'addressLocality' => 'Bengaluru',
+        'addressRegion' => 'KA',
+        'addressCountry' => 'IN',
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wealth4uwithvastu</title>
+<title><?php echo htmlspecialchars($docTitle, ENT_QUOTES, 'UTF-8'); ?></title>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="description" content="Astrology">
-<meta name="keywords" content="Astrology, signs, gemstones, tarot, horoscopes, cards, numerology, Zodiac">
-<meta name="author" content="hsoft" >
+<meta name="description" content="<?php echo htmlspecialchars($docDescription, ENT_QUOTES, 'UTF-8'); ?>">
+<meta name="keywords" content="vastu consultant, vastu expert, vastu for home, business vastu, vastu remedies, astro vastu">
+<meta name="author" content="Vastu5">
 <meta name="MobileOptimized" content="320">
+<link rel="canonical" href="<?php echo htmlspecialchars($docCanonical, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:type" content="<?php echo htmlspecialchars($docOgType, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:title" content="<?php echo htmlspecialchars($docTitle, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:description" content="<?php echo htmlspecialchars($docDescription, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:url" content="<?php echo htmlspecialchars($docCanonical, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:image" content="<?php echo htmlspecialchars($docOgImage, ENT_QUOTES, 'UTF-8'); ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?php echo htmlspecialchars($docTitle, ENT_QUOTES, 'UTF-8'); ?>">
+<meta name="twitter:description" content="<?php echo htmlspecialchars($docDescription, ENT_QUOTES, 'UTF-8'); ?>">
+<meta name="twitter:image" content="<?php echo htmlspecialchars($docOgImage, ENT_QUOTES, 'UTF-8'); ?>">
+<script type="application/ld+json"><?php echo $docJsonLd; ?></script>
 <!--Srart Style -->
 <link rel="stylesheet" type="text/css" href="css/animate.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -26,12 +58,12 @@
   new WOW().init();
 </script>
 <!-- Facebook Pixel Code -->
-<script type="18329c0190eb45dc0d1aa69c-text/javascript">
+<script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','../../../../connect.facebook.net/en_US/fbevents.js');
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1624167494576352');
 fbq('track', 'PageView');
 </script>
@@ -41,7 +73,7 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
 <!-- DO NOT MODIFY -->
 <!-- End Facebook Pixel Code -->
 </head>
-<body><a href="https://kamleshyadav.com/cdn-cgi/content?id=bgzqBZhwyRHUh1CQnrtj97tYCdtMZJWVgXI2wff.5lU-1765272936.8433309-1.0.1.1-5tmpa7SgHYWQT3pVVzJdrQXEl0xF6jACrnvTC0o_ta4" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+<body>
 <!-- Header Start -->
 <div class="ast_top_header" style="    background: linear-gradient(135deg, #ff6c29 0%, #FFCB79 40%, #FFF3B0 70%, #faea8e 100%);">
 	<div class="container">
@@ -132,10 +164,10 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
           <div class="ast_menu">
            <ul>
               <li><a href="index.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){ echo 'active'; } ?>">Home</a></li>
-              <li><a href="#about_us" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">About Us</a></li>
-              <li><a href="#our_services" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">Services</a></li>
-              <li><a href="#contact" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">Appointment</a></li>
-              <li><a href="#contact" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">Contact</a></li>
+              <li><a href="index.php#about_us">About Us</a></li>
+              <li><a href="index.php#our_services">Services</a></li>
+              <li><a href="index.php#contact">Appointment</a></li>
+              <li><a href="index.php#contact">Contact</a></li>
            </ul>
           </div>
         </div>
@@ -148,10 +180,10 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
           <div class="mobile-menu" id="mobileMenu">
             <ul>
                <li><a href="index.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){ echo 'active'; } ?>">Home</a></li>
-               <li><a href="#" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">About Us</a></li>
-               <li><a href="#" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">Services</a></li>
-               <li><a href="#" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">Appointment</a></li>
-               <li><a href="#" class="<?php if(basename($_SERVER['PHP_SELF']) == '#'){ echo 'active'; } ?>">Contact</a></li>
+               <li><a href="index.php#about_us">About Us</a></li>
+               <li><a href="index.php#our_services">Services</a></li>
+               <li><a href="index.php#contact">Appointment</a></li>
+               <li><a href="index.php#contact">Contact</a></li>
             </ul>
           </div>
 </div>

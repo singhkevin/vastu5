@@ -53,11 +53,11 @@
 					<h4 class="widget-title">quick links</h4>
 					<div class="ast_sociallink">
 						<ul>
-							<li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Appointment</a></li>
-                            <li><a href="#">Contact</a></li>
+							<li><a href="index.php">Home</a></li>
+                            <li><a href="index.php#about_us">About Us</a></li>
+                            <li><a href="index.php#our_services">Services</a></li>
+                            <li><a href="index.php#contact">Appointment</a></li>
+                            <li><a href="index.php#contact">Contact</a></li>
 						</ul>
 					</div>				
 				</div>			
@@ -91,13 +91,13 @@
 
 
 
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/jquery.js"></script> 
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/bootstrap.js"></script>
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/jquery.magnific-popup.js"></script>
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/owl.carousel.js"></script>
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/jquery.countTo.js"></script>
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/jquery.appear.js"></script>
-<script type="18329c0190eb45dc0d1aa69c-text/javascript" src="js/custom.js"></script>
+<script src="js/jquery.js"></script> 
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/custom.js"></script>
 <!--Main js file End-->
 
 
@@ -105,29 +105,40 @@
 
 
 <script>
-// Show/hide button on scroll
-const backToTop = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTop.classList.add("show");
-  } else {
-    backToTop.classList.remove("show");
+(function () {
+  // Show/hide button on scroll
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) {
+    return;
   }
-});
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  });
 
-// Smooth scroll to top
-backToTop.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  // Smooth scroll to top
+  backToTop.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
 </script>
 
 
 <script>
-document.getElementById("menuBtn").addEventListener("click", function() {
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-});
+(function () {
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (!menuBtn || !mobileMenu) {
+    return;
+  }
+  menuBtn.addEventListener("click", function() {
+      mobileMenu.style.display = (mobileMenu.style.display === "block") ? "none" : "block";
+  });
+})();
 </script>
 
 
@@ -139,23 +150,18 @@ document.addEventListener("DOMContentLoaded", function () {
   let stayTimer;
 
   if (!popup) {
-    console.error("popupForm not found");
+    document.body.classList.add("loaded");
     return;
   }
 
   // ===== LOADER LOGIC =====
-  if (sessionStorage.getItem("loaderShown")) {
-    document.body.classList.add("loaded");
-    startStayTimer();
-  } else {
-    window.addEventListener("load", function () {
-      setTimeout(() => {
-        document.body.classList.add("loaded");
-        sessionStorage.setItem("loaderShown", "true");
-        startStayTimer();
-      }, 2000); // loader time
-    });
-  }
+  // Always show loader for the configured duration on each page load.
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.body.classList.add("loaded");
+      startStayTimer();
+    }, 4500); // loader time (kept longer so animation is visible)
+  });
 
   // ===== 30 SECOND STAY TIMER =====
   function startStayTimer() {
@@ -176,78 +182,6 @@ function closePopup(){
   document.getElementById("popupForm").style.display = "none";
 }
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const form = document.getElementById("contactForm");
-  const responseBox = document.querySelector(".response");
-
-  // ===== CAPTCHA SETUP =====
-  const num1 = Math.floor(Math.random() * 10) + 1;
-  const num2 = Math.floor(Math.random() * 10) + 1;
-  const correctAnswer = num1 + num2;
-
-  document.getElementById("captchaQuestion").innerText =
-    "What is " + num1 + " + " + num2 + "?";
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    responseBox.innerHTML = "";
-    responseBox.style.color = "red";
-
-    let errors = [];
-
-    const firstName = form.first_name.value.trim();
-    const lastName = form.last_name.value.trim();
-    const email = form.email.value.trim();
-    const subject = form.subject.value.trim();
-    const message = form.message.value.trim();
-    const captcha = document.getElementById("captchaAnswer").value.trim();
-
-    // ===== VALIDATIONS =====
-    if (firstName === "") errors.push("First name is required.");
-    if (lastName === "") errors.push("Last name is required.");
-
-    if (email === "") {
-      errors.push("Email is required.");
-    } else if (!validateEmail(email)) {
-      errors.push("Please enter a valid email address.");
-    }
-
-    if (subject === "") errors.push("Subject is required.");
-    if (message === "") errors.push("Message is required.");
-
-    if (captcha === "") {
-      errors.push("Captcha answer is required.");
-    } else if (parseInt(captcha) !== correctAnswer) {
-      errors.push("Captcha answer is incorrect.");
-    }
-
-    // ===== SHOW ERRORS OR SUBMIT =====
-    if (errors.length > 0) {
-      responseBox.innerHTML = errors.join("<br>");
-      return;
-    }
-
-    // All validations passed
-    responseBox.style.color = "green";
-    responseBox.innerHTML = "Form submitted successfully.";
-
-    form.submit(); // finally submit form
-  });
-
-  // Email format check
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-});
-</script>
-
-
-
-
-
 <!-- index page experience counter -->
 <script>
 document.querySelectorAll('.timer').forEach(counter => {

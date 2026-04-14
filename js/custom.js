@@ -30,15 +30,7 @@ Version: 1.0
 
 	});
 	
-	// Menu js for Position fixed
-	$(window).scroll(function(){
-		var window_top = $(window).scrollTop() + 1; 
-		if (window_top > 300) {
-			$('.ast_header_bottom').addClass('menu_fixed animated fadeInDown');
-		} else {
-			$('.ast_header_bottom').removeClass('menu_fixed animated fadeInDown');
-		}
-	});
+	// Sticky header disabled: keep navigation non-fixed while scrolling.
 		
 	// Magnific Text Popup js
 	$('.popup-with-zoom-anim').magnificPopup({

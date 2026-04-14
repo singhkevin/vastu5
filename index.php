@@ -1,4 +1,15 @@
-<?php include 'require/header.php'; ?>
+<?php
+$status = $_GET['status'] ?? '';
+$reason = $_GET['reason'] ?? '';
+$reasonMessages = [
+    'invalid' => 'Please fill all required fields with a valid email address.',
+    'encoding' => 'Unable to process your request. Please try again.',
+    'transport' => 'Connection error while sending your request. Please try again.',
+    'upstream' => 'Service is temporarily unavailable. Please try again shortly.',
+    'submit' => 'We could not complete your request. Please try again.',
+];
+include 'require/header.php';
+?>
 <!-- Header End -->  
 <!--Slider Start-->
 <!--Slider Start-->
@@ -953,42 +964,19 @@
 
 </style>
 <script>
-  let slides = document.querySelectorAll('.testimonial-slide');
-  let dots = document.querySelectorAll('.dot');
-  let current = 0;
-
-  function showSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-    current = index;
-  }
-
-  function goSlide(index) {
-    showSlide(index);
-  }
-
-  setInterval(() => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }, 4500);
-</script>
-
-<script>
 let currentSlide = 0;
-const slides = document.querySelectorAll(".testimonial-slide");
-const dots = document.querySelectorAll(".dot");
+const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+const testimonialDots = document.querySelectorAll(".dot");
 
 function showSlide(index) {
-  slides.forEach((s, i) => {
+  testimonialSlides.forEach((s, i) => {
     s.classList.toggle("active", i === index);
-    dots[i].classList.toggle("active", i === index);
+    testimonialDots[i].classList.toggle("active", i === index);
   });
 }
 
 function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
+  currentSlide = (currentSlide + 1) % testimonialSlides.length;
   showSlide(currentSlide);
 }
 
@@ -1080,33 +1068,33 @@ showSlide(currentSlide);
 	</div>
 	<div class="ast_contact_map" id="contact">
 		<div class="ast_contact_form wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.6s">
-			<form id="contactForm" action="save_form.php" method="POST">
+			<form id="contactForm" action="save_form.php" method="POST" novalidate>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-					<label>first name</label>
-					<input type="text" name="first_name" >
+					<label for="first_name">first name *</label>
+					<input type="text" id="first_name" name="first_name" required autocomplete="given-name">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-					<label>last name</label>
-					<input type="text" name="last_name" >
+					<label for="last_name">last name *</label>
+					<input type="text" id="last_name" name="last_name" required autocomplete="family-name">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-					<label>email</label>
-					<input type="text" name="email"  data-valid="email" data-error="Email should be valid.">
+					<label for="email">email *</label>
+					<input type="email" id="email" name="email" required autocomplete="email">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-					<label>subject</label>
-					<input type="text" name="subject" >
+					<label for="subject">subject *</label>
+					<input type="text" id="subject" name="subject" required>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-					<label>message</label>
-					<textarea rows="5" name="message" ></textarea>
+					<label for="message">message *</label>
+					<textarea rows="5" id="message" name="message" required></textarea>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-    <label id="captchaQuestion"></label>
-    <input type="text" id="captchaAnswer"  placeholder="Enter answer">
+    <label id="captchaQuestion" for="captchaAnswer"></label>
+    <input type="text" id="captchaAnswer" required placeholder="Enter answer">
 </div>
-				<div class="response"></div>
+				<div class="response" role="alert" aria-live="polite"><?php if ($status === 'error') { ?><span style='color:red;'><?php echo htmlspecialchars($reasonMessages[$reason] ?? $reasonMessages['submit'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?></div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 					<button class="ast_btn pull-right submitForm" type="submit" form-type="contact">send</button>
 				</div>
@@ -1121,12 +1109,7 @@ showSlide(currentSlide);
 <!--Content Us End-->
 
 
-<!-- Download wrapper start-->
-<div class="ast_download_wrapper ast_toppadder70 ast_bottompadder70">
-	
-</div>
-<!-- Download wrapper End-->
-<!-- Download wrapper End-->
+<!-- Download wrapper removed: empty block created unnecessary gap -->
 <!-- Footer wrapper start-->
 <script>
 document.addEventListener("DOMContentLoaded", function () {

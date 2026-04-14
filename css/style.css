@@ -470,6 +470,9 @@ input:focus, textarea:focus, select:focus, button:focus {
 	margin-top:0px;
     background-color:rgba(0, 0, 0, 0.7);
 }
+.menu_fixed .ast_menu ul li a{
+	color:#ffffff;
+}
 .ast_slider{
 	float:left;
 	width:100%;
