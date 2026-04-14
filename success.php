@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+if (parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) === '/success.php') {
+    header('Location: /success/', true, 301);
+    exit;
+}
+?>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -47,7 +53,7 @@ let timer = setInterval(function () {
 
     if (count === 0) {
         clearInterval(timer);
-        window.location.href = "index.php";
+        window.location.href = "/";
     }
 }, 1000);
 </script>

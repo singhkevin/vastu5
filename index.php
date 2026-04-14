@@ -1,4 +1,9 @@
 <?php
+if (parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) === '/index.php') {
+    header('Location: /', true, 301);
+    exit;
+}
+
 $status = $_GET['status'] ?? '';
 $reason = $_GET['reason'] ?? '';
 $reasonMessages = [

@@ -1,9 +1,14 @@
 <?php
 declare(strict_types=1);
 
+if (parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) === '/blog-mahavastu-for-business-and-wealth.php') {
+    header('Location: /mahavastu-for-business-and-wealth/', true, 301);
+    exit;
+}
+
 $page_title = 'MahaVastu for Business and Wealth | Vastu5 Blog';
 $page_meta_description = 'Learn how MahaVastu can support business growth, financial stability, and better decision-making through practical spatial alignment.';
-$page_canonical = 'https://vastu5.com/blog-mahavastu-for-business-and-wealth.php';
+$page_canonical = 'https://vastu5.com/mahavastu-for-business-and-wealth/';
 
 require __DIR__ . '/require/header.php';
 ?>
@@ -42,8 +47,8 @@ require __DIR__ . '/require/header.php';
       <p>If you want to apply <strong>MahaVastu</strong> to your office or business property, the best starting point is an assessment of current space usage, decision flow, and functional zones. From there, practical and stepwise corrections can be implemented without disrupting daily operations.</p>
 
       <p style="margin-top: 20px;">
-        <a class="ast_btn" href="index.php#contact">Book a Consultation</a>
-        <a class="ast_btn" href="blog.php" style="margin-left: 8px;">Back to Blog</a>
+        <a class="ast_btn" href="/#contact">Book a Consultation</a>
+        <a class="ast_btn" href="/blog/" style="margin-left: 8px;">Back to Blog</a>
       </p>
     </article>
     </div>

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: index.php#contact');
+    header('Location: /#contact');
     exit;
 }
 
@@ -13,7 +13,7 @@ $subject = trim((string) ($_POST['subject'] ?? ''));
 $message = trim((string) ($_POST['message'] ?? ''));
 
 if ($firstName === '' || $lastName === '' || $subject === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: index.php#contact?status=error&reason=invalid');
+    header('Location: /#contact?status=error&reason=invalid');
     exit;
 }
 
@@ -28,13 +28,13 @@ $data = [
 
 $payload = json_encode($data);
 if ($payload === false) {
-    header('Location: index.php#contact?status=error&reason=encoding');
+    header('Location: /#contact?status=error&reason=encoding');
     exit;
 }
 
 $ch = curl_init($url);
 if ($ch === false) {
-    header('Location: index.php#contact?status=error&reason=transport');
+    header('Location: /#contact?status=error&reason=transport');
     exit;
 }
 
@@ -50,15 +50,15 @@ $curlErrno = curl_errno($ch);
 curl_close($ch);
 
 if ($curlErrno !== 0 || $response === false || $httpCode < 200 || $httpCode >= 300) {
-    header('Location: index.php#contact?status=error&reason=upstream');
+    header('Location: /#contact?status=error&reason=upstream');
     exit;
 }
 
 $result = json_decode((string) $response, true);
 if (is_array($result) && ($result['status'] ?? '') === 'success') {
-    header('Location: success.php');
+    header('Location: /success/');
     exit;
 }
 
-header('Location: index.php#contact?status=error&reason=submit');
+header('Location: /#contact?status=error&reason=submit');
 exit;

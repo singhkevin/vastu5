@@ -18,6 +18,12 @@ $docJsonLd = $page_json_ld ?? json_encode([
         'addressCountry' => 'IN',
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
+$isHomePage = $requestPath === '/' || $requestPath === '/index.php';
+$isBlogPage = $requestPath === '/blog/' || $requestPath === '/blog' || $requestPath === '/blog.php'
+    || $requestPath === '/mahavastu-for-business-and-wealth/' || $requestPath === '/mahavastu-for-business-and-wealth'
+    || $requestPath === '/blog-mahavastu-for-business-and-wealth.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +31,7 @@ $docJsonLd = $page_json_ld ?? json_encode([
 <title><?php echo htmlspecialchars($docTitle, ENT_QUOTES, 'UTF-8'); ?></title>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<base href="/">
 <meta name="description" content="<?php echo htmlspecialchars($docDescription, ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="keywords" content="vastu consultant, vastu expert, vastu for home, business vastu, vastu remedies, astro vastu">
 <meta name="author" content="Vastu5">
@@ -156,19 +163,19 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-10 mobile-header">
         <div class="ast_logo">
-          <a href="index.php"><img src="images/header/logo.png" alt="Logo" title="Logo" loading="lazy"></a>
+          <a href="/"><img src="images/header/logo.png" alt="Logo" title="Logo" loading="lazy"></a>
         </div>
       </div>
       <div class="col-lg-9 col-md-9 col-sm-9 col-2 d-flex justify-content-end">
         <div class="ast_main_menu_wrapper">
           <div class="ast_menu">
            <ul>
-              <li><a href="index.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){ echo 'active'; } ?>">Home</a></li>
-              <li><a href="index.php#about_us">About Us</a></li>
-              <li><a href="index.php#our_services">Services</a></li>
-              <li><a href="blog.php" class="<?php if(in_array(basename($_SERVER['PHP_SELF']), ['blog.php', 'blog-mahavastu-for-business-and-wealth.php'], true)){ echo 'active'; } ?>">Blog</a></li>
-              <li><a href="index.php#contact">Appointment</a></li>
-              <li><a href="index.php#contact">Contact</a></li>
+              <li><a href="/" class="<?php if($isHomePage){ echo 'active'; } ?>">Home</a></li>
+              <li><a href="/#about_us">About Us</a></li>
+              <li><a href="/#our_services">Services</a></li>
+              <li><a href="/blog/" class="<?php if($isBlogPage){ echo 'active'; } ?>">Blog</a></li>
+              <li><a href="/#contact">Appointment</a></li>
+              <li><a href="/#contact">Contact</a></li>
            </ul>
           </div>
         </div>
@@ -180,12 +187,12 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
   <!-- Mobile menu overlay -->
           <div class="mobile-menu" id="mobileMenu">
             <ul>
-               <li><a href="index.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){ echo 'active'; } ?>">Home</a></li>
-               <li><a href="index.php#about_us">About Us</a></li>
-               <li><a href="index.php#our_services">Services</a></li>
-               <li><a href="blog.php" class="<?php if(in_array(basename($_SERVER['PHP_SELF']), ['blog.php', 'blog-mahavastu-for-business-and-wealth.php'], true)){ echo 'active'; } ?>">Blog</a></li>
-               <li><a href="index.php#contact">Appointment</a></li>
-               <li><a href="index.php#contact">Contact</a></li>
+               <li><a href="/" class="<?php if($isHomePage){ echo 'active'; } ?>">Home</a></li>
+               <li><a href="/#about_us">About Us</a></li>
+               <li><a href="/#our_services">Services</a></li>
+               <li><a href="/blog/" class="<?php if($isBlogPage){ echo 'active'; } ?>">Blog</a></li>
+               <li><a href="/#contact">Appointment</a></li>
+               <li><a href="/#contact">Contact</a></li>
             </ul>
           </div>
 </div>

@@ -12,7 +12,62 @@ $timezone = new DateTimeZone('Asia/Kolkata');
  */
 $changeLogEntries = [
     [
-        'timestamp' => '2026-04-14 14:36:00',
+        'timestamp' => '2026-04-14 13:13:00',
+        'title' => 'Removed .php from public page URLs',
+        'items' => [
+            'Added clean routes for /blog/, /mahavastu-for-business-and-wealth/, and /success/ using folder index pages.',
+            'Added 301 redirects from legacy .php paths to their clean URL equivalents.',
+            'Updated header/footer links, blog links, canonical URLs, and sitemap entries to use clean paths only.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 15:22:00',
+        'title' => 'Clean URL redirect for /index.php',
+        'items' => [
+            'Added 301 redirect in index.php so /index.php resolves to /.',
+            'Updated Home/logo links to root path (/) instead of index.php.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 15:14:00',
+        'title' => 'Cleaned anchor URLs to remove index.php',
+        'items' => [
+            'Updated About/Services/Contact links in header and footer to use root anchors (e.g. /#about_us).',
+            'Updated consultation CTA and form error redirects to root anchor URLs so .php does not appear in navigation URLs.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 15:06:00',
+        'title' => 'Loader duration reduced to 2 seconds',
+        'items' => [
+            'Updated loader timeout in require/footer.php from 4.5 seconds to 2 seconds.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-14 15:00:00',
+        'title' => 'Log grouped by date and sorted latest-first',
+        'items' => [
+            'Updated changelog rendering to sort by timestamp from latest to oldest.',
+            'Grouped entries under each date so all updates for the same day appear together.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-13 14:49:00',
+        'title' => 'Added top padding above log page heading',
+        'items' => [
+            'Applied top padding to the /log heading block so the title has consistent space from the container edge.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-13 14:44:00',
+        'title' => 'Log page header overlap fix',
+        'items' => [
+            'Added log-content-shell class to the /log section.',
+            'Applied responsive top clearance so log content starts below top header + menu bars.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-13 14:36:00',
         'title' => 'Added top space above blog article H1',
         'items' => [
             'Applied explicit top padding to blog-article-head so H1 has visible space above it.',
@@ -177,10 +232,22 @@ $changeLogEntries = [
     ],
 ];
 
+$sortedEntries = $changeLogEntries;
+usort($sortedEntries, static function (array $a, array $b): int {
+    return strcmp($b['timestamp'], $a['timestamp']);
+});
+
+$groupedEntries = [];
+foreach ($sortedEntries as $entry) {
+    $entryDate = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $entry['timestamp'], $timezone);
+    $dateLabel = $entryDate instanceof DateTimeImmutable ? $entryDate->format('d M Y') : $entry['timestamp'];
+    $groupedEntries[$dateLabel][] = $entry;
+}
+
 require __DIR__ . '/../require/header.php';
 ?>
 
-<section class="ast_toppadder70 ast_bottompadder70" style="background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
+<section class="ast_toppadder70 ast_bottompadder70 log-content-shell" style="background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
   <div class="container">
     <div class="ast_heading text-center mb-5">
       <h1>Website Update Log</h1>
@@ -189,15 +256,13 @@ require __DIR__ . '/../require/header.php';
 
     <div style="max-width: 980px; margin: 0 auto; background: #fff; border: 1px solid #f3d7a9; border-radius: 12px; padding: 24px;">
       <p style="margin-bottom: 18px; color: #5f4633;">
-        <strong>Rule:</strong> Every site change must be added here with date and time stamp.
+        <strong>Rule:</strong> Every site change must be added here with date stamp.
       </p>
 
-      <?php foreach ($changeLogEntries as $entry) {
-          $entryDate = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $entry['timestamp'], $timezone);
-          $stamp = $entryDate instanceof DateTimeImmutable ? $entryDate->format('d M Y') : $entry['timestamp'];
-          ?>
+      <?php foreach ($groupedEntries as $dateLabel => $entriesForDate) { ?>
+      <h4 style="margin: 0 0 10px; padding-top: 6px;"><?php echo htmlspecialchars($dateLabel, ENT_QUOTES, 'UTF-8'); ?></h4>
+      <?php foreach ($entriesForDate as $entry) { ?>
       <article style="padding: 18px 16px; border: 1px solid #f3e1c0; border-radius: 10px; margin-bottom: 14px; background: #fffdf8;">
-        <p style="margin: 0 0 6px; font-size: 13px; color: #8a6b45;"><strong><?php echo htmlspecialchars($stamp, ENT_QUOTES, 'UTF-8'); ?></strong></p>
         <h4 style="margin: 0 0 10px;"><?php echo htmlspecialchars($entry['title'], ENT_QUOTES, 'UTF-8'); ?></h4>
         <ul style="margin-bottom: 0;">
           <?php foreach ($entry['items'] as $item) { ?>
@@ -205,6 +270,7 @@ require __DIR__ . '/../require/header.php';
           <?php } ?>
         </ul>
       </article>
+      <?php } ?>
       <?php } ?>
     </div>
   </div>

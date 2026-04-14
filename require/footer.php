@@ -53,12 +53,12 @@
 					<h4 class="widget-title">quick links</h4>
 					<div class="ast_sociallink">
 						<ul>
-							<li><a href="index.php">Home</a></li>
-                            <li><a href="index.php#about_us">About Us</a></li>
-                            <li><a href="index.php#our_services">Services</a></li>
-                            <li><a href="blog.php">Blog</a></li>
-                            <li><a href="index.php#contact">Appointment</a></li>
-                            <li><a href="index.php#contact">Contact</a></li>
+							<li><a href="/">Home</a></li>
+                            <li><a href="/#about_us">About Us</a></li>
+                            <li><a href="/#our_services">Services</a></li>
+                            <li><a href="/blog/">Blog</a></li>
+                            <li><a href="/#contact">Appointment</a></li>
+                            <li><a href="/#contact">Contact</a></li>
 						</ul>
 					</div>				
 				</div>			
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       document.body.classList.add("loaded");
       startStayTimer();
-    }, 4500); // loader time (kept longer so animation is visible)
+    }, 2000); // loader time
   });
 
   // ===== 30 SECOND STAY TIMER =====

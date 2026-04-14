@@ -1,9 +1,14 @@
 <?php
 declare(strict_types=1);
 
+if (parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) === '/blog.php') {
+    header('Location: /blog/', true, 301);
+    exit;
+}
+
 $page_title = 'Blog | Vastu5';
 $page_meta_description = 'Insights from Vastu5 on home vastu, business vastu, astro-vastu, and practical space alignment.';
-$page_canonical = 'https://vastu5.com/blog.php';
+$page_canonical = 'https://vastu5.com/blog/';
 
 require __DIR__ . '/require/header.php';
 ?>
@@ -21,7 +26,7 @@ require __DIR__ . '/require/header.php';
           <img src="images/new/compass.png" alt="MahaVastu for Business and Wealth" loading="lazy">
           <h4>MahaVastu for Business and Wealth</h4>
           <p>Explore how MahaVastu principles can improve business stability, team clarity, and wealth flow through practical, non-demolition corrections.</p>
-          <a class="ast_btn" href="blog-mahavastu-for-business-and-wealth.php">Read Article</a>
+          <a class="ast_btn" href="/mahavastu-for-business-and-wealth/">Read Article</a>
         </article>
       </div>
     </div>

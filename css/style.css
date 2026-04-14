@@ -6291,6 +6291,25 @@ margin-bottom:30px !important;
   }
 }
 
+/* Log page: keep content below header/menu bars */
+.log-content-shell{
+  clear: both;
+  margin-top: 20px !important;
+}
+.log-content-shell .ast_heading{
+  padding-top: 12px;
+}
+@media (max-width: 991px){
+  .log-content-shell{
+    margin-top: 76px !important;
+  }
+}
+@media (max-width: 575px){
+  .log-content-shell{
+    margin-top: 90px !important;
+  }
+}
+
 /* Blog article page: keep heading and body perfectly aligned */
 .blog-article-wrap{
   max-width: 920px;
