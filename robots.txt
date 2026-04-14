@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block common junk paths if they are ever present
+Disallow: /cgi-bin/
+
+Sitemap: https://vastu5.com/sitemap.xml

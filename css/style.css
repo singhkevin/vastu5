@@ -6209,4 +6209,12 @@ margin-bottom:30px !important;
     border-radius:14px;
   }
 }
+
+/* Keep footer visible on all pages (override legacy fixed/-1 stacking) */
+.ast_footer_wrapper{
+  position: relative !important;
+  bottom: auto !important;
+  z-index: 1 !important;
+  clear: both;
+}
 /* end */

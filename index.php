@@ -8,6 +8,52 @@ $reasonMessages = [
     'upstream' => 'Service is temporarily unavailable. Please try again shortly.',
     'submit' => 'We could not complete your request. Please try again.',
 ];
+$page_title = 'Vastu Consultant & Expert | Vastu for Home & Business | Vastu5';
+$page_meta_description = 'Vastu5 by Swikar Sethi offers practical vastu consultation for homes and businesses with non-demolition remedies and MahaVastu-based alignment.';
+$page_canonical = 'https://vastu5.com/';
+$page_json_ld = json_encode([
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'ProfessionalService',
+            'name' => 'Vastu5',
+            'url' => 'https://vastu5.com/',
+            'telephone' => '+91-9316918385',
+            'email' => 'swikar.sethi@vastu5.com',
+            'areaServed' => 'IN',
+            'description' => 'Practical vastu consultation for residential and business spaces.',
+        ],
+        [
+            '@type' => 'FAQPage',
+            'mainEntity' => [
+                [
+                    '@type' => 'Question',
+                    'name' => 'What is MahaVastu and how is it different from traditional vastu?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'MahaVastu is an applied directional framework that focuses on activities, utilities, and object placement to improve practical outcomes without unnecessary demolition.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Can vastu corrections be done without breaking walls?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Yes. Most Vastu5 recommendations are non-demolition and involve stepwise changes in space usage, object placement, and directional alignment.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Does Vastu5 provide business vastu consultation?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Yes. Vastu5 provides business and office vastu consultations focused on clarity, decision flow, team performance, and financial stability.',
+                    ],
+                ],
+            ],
+        ],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 include 'require/header.php';
 ?>
 <!-- Header End -->  
@@ -29,7 +75,7 @@ include 'require/header.php';
     <div class="slide" style="background-image:url('images/new/2.jpg');">
       <div class="container">
         <div class="slide-content">
-          <h1 class="slide-text text-uppercase">Transform Homes & Businesses with Proven Vastu</h1>
+          <h2 class="slide-text text-uppercase">Transform Homes & Businesses with Proven Vastu</h2>
           <p class="slide-text">20+ Years of Expertise | Non-Demolition Remedies</p>
           <a href="#contact" class="banner-btn">Consult Now</a>
         </div>
@@ -103,7 +149,7 @@ include 'require/header.php';
     <div class="row" style="padding:70px 0px">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">AUO in <span>MahaVastu</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">AUO in <span>MahaVastu</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
@@ -169,7 +215,7 @@ include 'require/header.php';
     <div class="row" style="padding:70px 0px">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Planets, Objects<span> & Space</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Planets, Objects<span> & Space</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline1.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
@@ -236,7 +282,7 @@ include 'require/header.php';
       <!-- Heading -->
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">The Five <span>Elements</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">The Five <span>Elements</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
@@ -289,7 +335,7 @@ include 'require/header.php';
       
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Achievements</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Achievements</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
@@ -336,7 +382,7 @@ include 'require/header.php';
     
     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Services</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Services</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
@@ -350,7 +396,7 @@ include 'require/header.php';
 
       <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow animate__animated animate__fadeInLeft" data-wow-delay="0.2s">
         <div class="ast_service_box">
-          <img src="images/new/s2.jpg" alt="Service" loading="lazy">
+          <img src="images/new/s2.jpg" alt="Residential Vastu Consultation service" loading="lazy">
           <h4>Residential Vastu Consultation</h4>
           
         </div>
@@ -358,7 +404,7 @@ include 'require/header.php';
 
       <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
         <div class="ast_service_box">
-          <img src="images/new/s1.jpg" alt="Service" loading="lazy">
+          <img src="images/new/s1.jpg" alt="Commercial and Office Vastu service" loading="lazy">
           <h4>Commercial & Office Vastu</h4>
          
         </div>
@@ -366,7 +412,7 @@ include 'require/header.php';
 
       <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow animate__animated animate__fadeInRight" data-wow-delay="0.2s">
         <div class="ast_service_box">
-          <img src="images/new/s3.png" alt="Service" loading="lazy">
+          <img src="images/new/s3.png" alt="Industrial and Factory Vastu service" loading="lazy">
           <h4>Industrial & Factory Vastu</h4>
         </div>
       </div>
@@ -374,7 +420,7 @@ include 'require/header.php';
       <!-- Extra services will automatically wrap and be centered -->
       <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow animate__animated animate__fadeInLeft" data-wow-delay="0.2s">
         <div class="ast_service_box">
-          <img src="images/new/s4.jpg" alt="Service" loading="lazy">
+          <img src="images/new/s4.jpg" alt="Plot and land selection vastu service" loading="lazy">
           <h4>Plot & Land Selection</h4>
           
         </div>
@@ -382,7 +428,7 @@ include 'require/header.php';
 
 	  <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
         <div class="ast_service_box">
-          <img src="images/new/s5.jpg" alt="Service" loading="lazy">
+          <img src="images/new/s5.jpg" alt="Vastu corrections service" loading="lazy">
           <h4>Vastu Corrections</h4>
         </div>
       </div>
@@ -390,7 +436,7 @@ include 'require/header.php';
 
 	    <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow animate__animated animate__fadeInRight" data-wow-delay="0.2s">
         <div class="ast_service_box">
-          <img src="images/new/service_img.jpeg" alt="Service" loading="lazy">
+          <img src="images/new/service_img.jpeg" alt="Online and on-site vastu consultation service" loading="lazy">
           <h4>Online & On-site Consultations</h4>
           
         </div>
@@ -427,7 +473,7 @@ include 'require/header.php';
       <div class="col-lg-7 col-md-12 col-sm-12">
 
         <div class="ast_heading text-start mb-4">
-          <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Why <span>Choose Me</span></h1>
+          <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Why <span>Choose Me</span></h2>
           <img src="images/new/underline1.png" alt="Heading underline" class="heading-underline why-choose wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
          <p class="why-desc wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.4s" style="width:100%;text-align:left">
             At <strong>Wealth4U with Vastu</strong>, I blend traditional Vastu wisdom with
@@ -687,7 +733,7 @@ include 'require/header.php';
   <div class="container">
     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Clients Trust Me</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Clients Trust Me</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s" loading="lazy">
@@ -1002,7 +1048,7 @@ showSlide(currentSlide);
       
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Get in<span> touch</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Get in<span> touch</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
@@ -1054,7 +1100,7 @@ showSlide(currentSlide);
 			
        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
-                <h1 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">find & message <span>here</span></h1>
+                <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">find & message <span>here</span></h2>
 
                 <!-- UNDERLINE IMAGE -->
                  <img src="images/new/underline1.png" alt="Heading underline" class="heading-underline wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
@@ -1107,6 +1153,29 @@ showSlide(currentSlide);
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14778.760606876362!2d77.58786199529595!3d13.034621896582847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17a295d80a47%3A0x1a3ccbf328b14759!2sHebbal%2C%20Bengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1765364553571!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>	</div>
 </div>
 <!--Content Us End-->
+
+<section class="ast_toppadder70 ast_bottompadder70" style="background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
+  <div class="container">
+    <div class="ast_heading text-center mb-5">
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Quick answers about MahaVastu consultations and practical corrections.</strong></p>
+    </div>
+    <div style="max-width: 960px; margin: 0 auto;">
+      <div style="background:#fff; border:1px solid #f2ddbf; border-radius:10px; padding:18px; margin-bottom:12px;">
+        <h4>What is MahaVastu and how does it help in real life?</h4>
+        <p style="margin-bottom:0;">MahaVastu helps align activities, utilities, and objects with directional energy so your space supports better decisions, stability, and daily outcomes.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #f2ddbf; border-radius:10px; padding:18px; margin-bottom:12px;">
+        <h4>Do I need demolition for Vastu corrections?</h4>
+        <p style="margin-bottom:0;">In most cases, no. Vastu5 prioritizes non-demolition corrections using practical repositioning and functional alignment.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #f2ddbf; border-radius:10px; padding:18px;">
+        <h4>Can I get business or office Vastu consultation?</h4>
+        <p style="margin-bottom:0;">Yes. Business consultations focus on leadership zones, financial flow, operational clarity, and team productivity through practical MahaVastu methods.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- Download wrapper removed: empty block created unnecessary gap -->

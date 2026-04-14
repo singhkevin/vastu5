@@ -56,6 +56,7 @@
 							<li><a href="index.php">Home</a></li>
                             <li><a href="index.php#about_us">About Us</a></li>
                             <li><a href="index.php#our_services">Services</a></li>
+                            <li><a href="blog.php">Blog</a></li>
                             <li><a href="index.php#contact">Appointment</a></li>
                             <li><a href="index.php#contact">Contact</a></li>
 						</ul>
@@ -91,13 +92,13 @@
 
 
 
-<script src="js/jquery.js"></script> 
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.magnific-popup.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script src="js/jquery.countTo.js"></script>
-<script src="js/jquery.appear.js"></script>
-<script src="js/custom.js"></script>
+<script defer src="js/jquery.js"></script> 
+<script defer src="js/bootstrap.js"></script>
+<script defer src="js/jquery.magnific-popup.js"></script>
+<script defer src="js/owl.carousel.js"></script>
+<script defer src="js/jquery.countTo.js"></script>
+<script defer src="js/jquery.appear.js"></script>
+<script defer src="js/custom.js"></script>
 <!--Main js file End-->
 
 

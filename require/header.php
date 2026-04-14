@@ -166,6 +166,7 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
               <li><a href="index.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){ echo 'active'; } ?>">Home</a></li>
               <li><a href="index.php#about_us">About Us</a></li>
               <li><a href="index.php#our_services">Services</a></li>
+              <li><a href="blog.php" class="<?php if(in_array(basename($_SERVER['PHP_SELF']), ['blog.php', 'blog-mahavastu-for-business-and-wealth.php'], true)){ echo 'active'; } ?>">Blog</a></li>
               <li><a href="index.php#contact">Appointment</a></li>
               <li><a href="index.php#contact">Contact</a></li>
            </ul>
@@ -182,6 +183,7 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
                <li><a href="index.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){ echo 'active'; } ?>">Home</a></li>
                <li><a href="index.php#about_us">About Us</a></li>
                <li><a href="index.php#our_services">Services</a></li>
+               <li><a href="blog.php" class="<?php if(in_array(basename($_SERVER['PHP_SELF']), ['blog.php', 'blog-mahavastu-for-business-and-wealth.php'], true)){ echo 'active'; } ?>">Blog</a></li>
                <li><a href="index.php#contact">Appointment</a></li>
                <li><a href="index.php#contact">Contact</a></li>
             </ul>
