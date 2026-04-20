@@ -101,7 +101,7 @@ include 'require/header.php';
       <!-- Image Column -->
       <div class="col-lg-5 col-md-5 col-sm-12 col-12 position-relative">
         <div class="ast_about_info_img wow animate__animated animate__fadeInLeft" data-wow-delay="0.2s ">
-          <img src="images/content/about.jpeg" alt="About Wealth4U with Vastu" loading="lazy">
+          <img src="images/content/about.jpeg" alt="Swikar Sethi, Vastu5 — vastu consultant and practitioner" loading="lazy">
         </div>
 
         <!-- Vastu Compass In Front of Image -->
@@ -112,31 +112,30 @@ include 'require/header.php';
       <div class="col-lg-7 col-md-7 col-sm-12 col-12" id="about_us">
         <div class="ast_about_info">
 
-          <span class="section_tagline wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.2s">Vastu Wisdom • Natural Balance</span>
-          <h4 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.4s">Know About Vastu Shastra</h4>
+          <span class="section_tagline wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.2s">Experience • Science • Insight</span>
+          <h4 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.4s">About Swikar Sethi</h4>
 
-          <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.6s">
-            At <strong>Wealth4U with Vastu</strong>, we believe that every space carries
-            a unique energy that directly influences health, wealth, and peace of mind.
-            Guided by expert consultant <strong>Swikar Sethi</strong>, we help align
-            living and working spaces with the timeless principles of
-            <strong>Vastu Shastra</strong>.
-          </p>
+          <div class="ast-about-swickar-block">
+            <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.6s">
+              With over <strong>36 years</strong> of professional and investment experience, Swikar Sethi combines engineering discipline, entrepreneurial depth, and a clear read of how environments shape outcomes. A <strong>textile engineer</strong> by qualification, his path has crossed real estate, executive search, education, lifestyle ventures, and angel investing—each reinforcing one idea: <strong>space and how we use it directly influence results</strong>.
+            </p>
 
-          <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.8s">
-            Vastu Shastra is the ancient science of harmonizing the
-            five natural elements—<strong> Earth, Water, Fire, Air, and Space</strong>.
-            When directions, layout, and energy flow are properly balanced,
-            they create an environment that supports stability, prosperity,
-            and positive growth.
-          </p>
+            <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.8s">
+              His work with Vastu began more than <strong>25 years ago</strong>, during his real estate years, when similar properties in the same market often produced very different fortunes.
+            </p>
 
-          <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="1s">
-            Our solutions focus on <strong>practical Vastu corrections without structural changes</strong>.
-            Through simple adjustments and energy alignment techniques,
-            we help enhance financial progress, family harmony,
-            career success, and long-term well-being.
-          </p>
+            <div class="ast-about-swickar-more" id="aboutSwikarMore" hidden>
+              <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.85s">
+                He studied ancient Vastu wisdom—rarely taught in formal schools—and tested it in practice, treating it as a <strong>science of space and energy alignment</strong>, not superstition. Early guidance to a close circle produced <strong>consistent, measurable improvements</strong> and grew into the dedicated practice you see today as <strong>Vastu5</strong>.
+              </p>
+
+              <p class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="1s">
+                Swikar brings <strong>22+ years</strong> of focused Vastu practice and <strong>150+</strong> residential and commercial projects across India. Clients share deep stories of revived businesses, clearer relationships, and renewed direction; as an ethical practitioner, he keeps those accounts <strong>confidential</strong> and lets outcomes speak. His other businesses—recruitment, education, lifestyle, and investments—now scale under <strong>capable leadership teams</strong>, so he can devote his energy to transforming spaces and lives. Based in <strong>North Bengaluru</strong> for the past five years, he works across Karnataka and beyond. <strong>Swikar Sethi of Vastu5</strong> offers a rare blend of experience, method, and insight—creating spaces that <strong>perform</strong>, not merely exist.
+              </p>
+            </div>
+
+            <button type="button" class="ast-about-read-toggle" id="aboutSwikarReadMore" aria-expanded="false" aria-controls="aboutSwikarMore">Read More</button>
+          </div>
 
         </div>
       </div>
@@ -171,7 +170,7 @@ include 'require/header.php';
         <div class="vastu-content-box">
 
           <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.2s">
-             At <strong>Vastu5,</strong> Vastu is not treated as superstition or guesswork. It is practiced as a <strong>living science,</strong> where spaces respond directly to how people live, work, and think inside them. One of the most powerful and practical tools used by <strong>Swikar Sethi,</strong> founder of Vastu5 and a MahaVastu practitioner with over 20 years of experience, is the concept of <strong>AUO – Activities, Utilities</strong>, and Objects.</p>
+             At <strong>Vastu5,</strong> Vastu is not treated as superstition or guesswork. It is practiced as a <strong>living science,</strong> where spaces respond directly to how people live, work, and think inside them. One of the most powerful and practical tools used by <strong>Swikar Sethi,</strong> founder of Vastu5 and a MahaVastu practitioner with over <strong>22 years</strong> of focused experience, is the concept of <strong>AUO – Activities, Utilities</strong>, and Objects.</p>
           <h5>What is AUO?</h5>
              <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.3s"><strong>AUO</strong> stands for:</p>
               <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.4s"> <span class="big-bullet">•</span><strong>Activities</strong> – what actions are performed in a space (sleeping, cooking, working, resting, studying, storing, socialising).</p>
@@ -238,7 +237,7 @@ include 'require/header.php';
 
           <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.2s">
               At <strong>Vastu5</strong>, Vastu is practiced as a <strong>precise science</strong>, not belief. Here, <strong>planets express themselves through objects placed in a space</strong>. Every item in your home or office—furniture, appliances, décor, storage, tools—carries <strong>planetary energy</strong>. When these objects are aligned correctly, life flows with clarity, stability, and growth. When they are misplaced, planetary imbalance reflects directly in health, finances, relationships, and decision-making. </p>
-              <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.3s"><strong>Swikar Sethi</strong>, founder of Vastu5 and a practitioner with over 20 years of experience, calls this process <strong>Vastu Programming</strong>. This programming is not random adjustment—it is a conscious method to align <strong>space with the individual’s Astro chart</strong>. This is where <strong>Astro Vastu</strong> becomes powerful and results-oriented.</p>
+              <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.3s"><strong>Swikar Sethi</strong>, founder of Vastu5 and a practitioner with over <strong>22 years</strong> of focused experience, calls this process <strong>Vastu Programming</strong>. This programming is not random adjustment—it is a conscious method to align <strong>space with the individual’s Astro chart</strong>. This is where <strong>Astro Vastu</strong> becomes powerful and results-oriented.</p>
               <h5 class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.4s">What is Programming in Astro Vastu?</h5>
               <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.5s"><strong>Programming</strong> means deliberately placing, activating, or correcting objects so that planetary energies start supporting the occupant. In Astro Vastu, planets do not work abstractly—they operate through <strong>objects, metals, colours, shapes, and utilities</strong>. Swikar Sethi programs a space by matching these planetary objects with the <strong>right direction and the person’s horoscope</strong>.</p>
               <p class="wow animate__animated animate__fadeInUp animate__slow"  data-wow-delay="0.6s">This is not decoration.</p>

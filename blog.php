@@ -21,12 +21,20 @@ require __DIR__ . '/require/header.php';
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10 col-sm-12 mb-4">
+      <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
         <article class="ast_service_box" style="height: 100%;">
           <img src="images/new/compass.png" alt="MahaVastu for Business and Wealth" loading="lazy">
           <h4>MahaVastu for Business and Wealth</h4>
           <p>Explore how MahaVastu principles can improve business stability, team clarity, and wealth flow through practical, non-demolition corrections.</p>
           <a class="ast_btn" href="/mahavastu-for-business-and-wealth/">Read Article</a>
+        </article>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+        <article class="ast_service_box" style="height: 100%;">
+          <img src="images/new/s3.jpg" alt="Business workspace and directional alignment" loading="lazy">
+          <h4>The Growth Blueprint: Business Vastu &amp; Astro Vastu</h4>
+          <p>Why similar businesses land in different places—and how aligning space with your chart can sharpen finance, decisions, and momentum.</p>
+          <a class="ast_btn" href="/growth-blueprint-business-astro-vastu/">Read Article</a>
         </article>
       </div>
     </div>

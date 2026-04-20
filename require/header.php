@@ -23,7 +23,9 @@ $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
 $isHomePage = $requestPath === '/' || $requestPath === '/index.php';
 $isBlogPage = $requestPath === '/blog/' || $requestPath === '/blog' || $requestPath === '/blog.php'
     || $requestPath === '/mahavastu-for-business-and-wealth/' || $requestPath === '/mahavastu-for-business-and-wealth'
-    || $requestPath === '/blog-mahavastu-for-business-and-wealth.php';
+    || $requestPath === '/blog-mahavastu-for-business-and-wealth.php'
+    || $requestPath === '/growth-blueprint-business-astro-vastu/' || $requestPath === '/growth-blueprint-business-astro-vastu'
+    || $requestPath === '/blog-growth-blueprint-business-astro-vastu.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

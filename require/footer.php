@@ -264,6 +264,28 @@ document.querySelector('.swikar-read-toggle').addEventListener('click', function
 </script>
 <!-- article first script -->
 
+<script>
+(function () {
+  const btn = document.getElementById('aboutSwikarReadMore');
+  const panel = document.getElementById('aboutSwikarMore');
+  if (!btn || !panel) {
+    return;
+  }
+  btn.addEventListener('click', function () {
+    const open = panel.hasAttribute('hidden');
+    if (open) {
+      panel.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = 'Read Less';
+    } else {
+      panel.setAttribute('hidden', 'hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = 'Read More';
+    }
+  });
+})();
+</script>
+
 <!-- article script -->
 <script>
 document.querySelector('.vastu-read-btn').addEventListener('click', function () {

@@ -12,6 +12,37 @@ $timezone = new DateTimeZone('Asia/Kolkata');
  */
 $changeLogEntries = [
     [
+        'timestamp' => '2026-04-20 20:05:00',
+        'title' => 'About Swikar: Read More placement fix',
+        'items' => [
+            'Wrapped bio + expandable + button in a flow-root block so Read More renders after the teaser text (legacy floated paragraphs no longer pull the button to the top).',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-20 19:45:00',
+        'title' => 'About Swikar: Read more toggle',
+        'items' => [
+            'Truncated homepage About Swikar Sethi copy after “very different fortunes.” with the remainder behind Read more / Read less.',
+            'Added accessible toggle script in require/footer.php and shared button styling in css/style.css.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-20 19:15:00',
+        'title' => 'New blog: Growth Blueprint (Business Vastu & Astro Vastu)',
+        'items' => [
+            'Published conversational blog article from client reference material at /growth-blueprint-business-astro-vastu/.',
+            'Added second card on /blog/, sitemap entry, and header active-state paths for the new post.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-04-20 18:30:00',
+        'title' => 'About Us: Swikar Sethi biography refresh',
+        'items' => [
+            'Rewrote the #about_us section on the homepage with updated professional background, Vastu journey, practice scope, and geography.',
+            'Aligned Vastu5 copy and image alt text; updated AUO and Astro Vastu blurbs to reference 22+ years of focused practice for consistency.',
+        ],
+    ],
+    [
         'timestamp' => '2026-04-14 13:13:00',
         'title' => 'Removed .php from public page URLs',
         'items' => [

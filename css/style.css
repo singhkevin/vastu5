@@ -5938,7 +5938,8 @@ li.ast_search , li.ast_cart{
 }
 
 /* BUTTON */
-.swikar-read-toggle {
+.swikar-read-toggle,
+.ast-about-read-toggle {
     margin-top: 25px;
     padding: 10px 30px;
     border-radius: 30px;
@@ -5950,9 +5951,35 @@ li.ast_search , li.ast_cart{
     transition: all 0.3s ease;
 }
 
-.swikar-read-toggle:hover {
+.swikar-read-toggle:hover,
+.ast-about-read-toggle:hover {
     background: #ff9800;
     color: #fff;
+}
+
+.ast_about_info .ast-about-read-toggle {
+    margin-top: 14px;
+}
+
+/* About Swikar: contain floated legacy paragraphs so Read More sits after copy */
+.ast-about-swickar-block {
+    display: flow-root;
+    clear: both;
+    width: 100%;
+}
+
+.ast-about-swickar-block .ast-about-swickar-more {
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+.ast-about-swickar-block .ast-about-read-toggle {
+    clear: both;
+    float: none;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
 }
 /* Planets, Objects & Space end */
 
@@ -5968,7 +5995,8 @@ li.ast_search , li.ast_cart{
         letter-spacing: -0.2px;
     }
 
-    .swikar-read-toggle {
+    .swikar-read-toggle,
+    .ast-about-read-toggle {
         margin-bottom: 30px;
     }
 }
