@@ -65,7 +65,7 @@ require __DIR__ . '/require/header.php';
 
       <p style="margin-top: 20px;">
         <a class="ast_btn" href="/#contact">Book a Consultation</a>
-        <a class="ast_btn" href="/blog/" style="margin-left: 8px;">Back to Blog</a>
+        <a class="ast_btn" href="/blog/">Back to Blog</a>
       </p>
     </article>
     </div>

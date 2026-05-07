@@ -99,6 +99,7 @@
 <script defer src="js/jquery.countTo.js"></script>
 <script defer src="js/jquery.appear.js"></script>
 <script defer src="js/custom.js"></script>
+<script defer src="js/form-validation.js"></script>
 <!--Main js file End-->
 
 
@@ -137,7 +138,20 @@
     return;
   }
   menuBtn.addEventListener("click", function() {
-      mobileMenu.style.display = (mobileMenu.style.display === "block") ? "none" : "block";
+      const isVisible = mobileMenu.style.display === "block";
+      mobileMenu.style.display = isVisible ? "none" : "block";
+      
+      // Toggle icon between bars and close
+      const icon = menuBtn.querySelector('i');
+      if (icon) {
+          if (isVisible) {
+              icon.classList.remove('fa-close');
+              icon.classList.add('fa-bars');
+          } else {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-close');
+          }
+      }
   });
 })();
 </script>

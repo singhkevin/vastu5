@@ -59,7 +59,7 @@ $page_json_ld = json_encode([
         ],
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-include 'require/header.php';
+require __DIR__ . '/require/header.php';
 ?>
 <!-- Header End -->  
 <!--Slider Start-->
@@ -356,7 +356,7 @@ include 'require/header.php';
         <div class="col-lg-3 col-md-3 col-sm-6 col-12 wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.8s">
           <div class="ast_counter">
             <span><img src="images/content/timer_2.png" alt="timer" loading="lazy"></span>
-             <h2 class="timer" data-from="0" data-to="20" data-speed="2500">0</h2>
+             <h2 class="timer" data-from="0" data-to="22" data-speed="2500">0</h2>
             <h4>Years of Practical Experience</h4>
           </div>
         </div>
@@ -1146,7 +1146,7 @@ showSlide(currentSlide);
 </div>
 				<div class="response" role="alert" aria-live="polite"><?php if ($status === 'error') { ?><span style='color:red;'><?php echo htmlspecialchars($reasonMessages[$reason] ?? $reasonMessages['submit'], ENT_QUOTES, 'UTF-8'); ?></span><?php } ?></div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-					<button class="ast_btn pull-right submitForm" type="submit" form-type="contact">send</button>
+					<button class="ast_btn pull-right" type="submit">send</button>
 				</div>
 				</div>
 			</form>
@@ -1184,62 +1184,7 @@ showSlide(currentSlide);
 
 <!-- Download wrapper removed: empty block created unnecessary gap -->
 <!-- Footer wrapper start-->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const form = document.getElementById("contactForm");
-    const responseBox = form.querySelector(".response");
-
-    // CAPTCHA
-    let num1 = Math.floor(Math.random() * 10) + 1;
-    let num2 = Math.floor(Math.random() * 10) + 1;
-    let correctAnswer = num1 + num2;
-
-    document.getElementById("captchaQuestion").innerHTML =
-        "Captcha: " + num1 + " + " + num2 + " = ?";
-
-    form.addEventListener("submit", function (e) {
-        responseBox.innerHTML = "";
-
-        // Required field validation
-        const requiredFields = form.querySelectorAll(
-            'input[name="first_name"], input[name="last_name"], input[name="email"], input[name="subject"], textarea[name="message"]'
-        );
-
-        for (let field of requiredFields) {
-            if (field.value.trim() === "") {
-                e.preventDefault();
-                responseBox.innerHTML =
-                    "<span style='color:red;'>All fields are required.</span>";
-                field.focus();
-                return;
-            }
-        }
-
-        // Email validation
-        let email = form.email.value.trim();
-        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            e.preventDefault();
-            responseBox.innerHTML =
-                "<span style='color:red;'>Please enter a valid email address.</span>";
-            form.email.focus();
-            return;
-        }
-
-        // Captcha validation
-        let userAnswer = document.getElementById("captchaAnswer").value.trim();
-        if (userAnswer === "" || parseInt(userAnswer) !== correctAnswer) {
-            e.preventDefault();
-            responseBox.innerHTML =
-                "<span style='color:red;'>Captcha answer is incorrect.</span>";
-            document.getElementById("captchaAnswer").focus();
-            return;
-        }
-    });
-
-});
-</script>
 
 
-<?php include 'require/footer.php'; ?>
+
+<?php require __DIR__ . '/require/footer.php'; ?>

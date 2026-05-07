@@ -1887,9 +1887,6 @@ input:focus, textarea:focus, select:focus, button:focus {
     float: left;
     width: 100%;
     background-color: #222222;
-    position: fixed;
-    bottom: 0;
-    z-index: -1;
 }
 .ast_footer_info{
 	float:left;
@@ -6238,13 +6235,7 @@ margin-bottom:30px !important;
   }
 }
 
-/* Keep footer visible on all pages (override legacy fixed/-1 stacking) */
-.ast_footer_wrapper{
-  position: relative !important;
-  bottom: auto !important;
-  z-index: 1 !important;
-  clear: both;
-}
+
 
 /* Contact/map layout fix: prevent map/form overlap into following section */
 .ast_mapnform_wrapper{
@@ -6402,6 +6393,13 @@ margin-bottom:30px !important;
   .blog-article-card p,
   .blog-article-card li{
     font-size: 1rem;
+  }
+  .blog-article-card .ast_btn {
+    margin-top: 10px;
+    margin-right: 8px;
+  }
+  .blog-article-card .ast_btn:last-child {
+    margin-right: 0;
   }
 }
 /* end */

@@ -37,6 +37,7 @@ $isBlogPage = $requestPath === '/blog/' || $requestPath === '/blog' || $requestP
 <meta name="description" content="<?php echo htmlspecialchars($docDescription, ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="keywords" content="vastu consultant, vastu expert, vastu for home, business vastu, vastu remedies, astro vastu">
 <meta name="author" content="Vastu5">
+<meta name="google-site-verification" content="p2Kznk7O-eesz5ItvyhZV8xVnnWOAhbJoBqhwTGcANM" />
 <meta name="MobileOptimized" content="320">
 <link rel="canonical" href="<?php echo htmlspecialchars($docCanonical, ENT_QUOTES, 'UTF-8'); ?>">
 <meta property="og:type" content="<?php echo htmlspecialchars($docOgType, ENT_QUOTES, 'UTF-8'); ?>">
@@ -79,8 +80,17 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscript=1"
 /></noscript>
-<!-- DO NOT MODIFY -->
 <!-- End Facebook Pixel Code -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-05NFD7PJVK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-05NFD7PJVK');
+</script>
 </head>
 <body>
 <!-- Header Start -->
@@ -91,7 +101,7 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
 				<div class="ast_contact_details">
 					<ul>
 						<li><i class="fa fa-phone" aria-hidden="true"></i> 9316918385</li>
-						<li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span class="__cf_email__" data-cfemail="ef9c9a9f9f809d9baf988a8d9c869b8ac18c8082">swikar.sethi@vastu5.com</span></a></li>
+						<li><a href="mailto:swikar.sethi@vastu5.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> swikar.sethi@vastu5.com</a></li>
 					</ul>
 				</div>
 				<div class="ast_autho_wrapper">
@@ -245,43 +255,45 @@ src="https://www.facebook.com/tr?id=1624167494576352&amp;ev=PageView&amp;noscrip
 
     <h3>Contact Us</h3>
 
-    <form class="contact-form" action="save_form.php" method="POST">
+    <form class="contact-form" id="popupContactForm" action="save_form.php" method="POST">
 
       <div class="row-2">
         <div class="field">
-          <label>First Name</label>
-          <input type="text" required name="first_name">
+          <label for="popup_first_name">First Name *</label>
+          <input type="text" id="popup_first_name" required name="first_name">
         </div>
         <div class="field">
-          <label>Last Name</label>
-          <input type="text" name="last_name" required>
+          <label for="popup_last_name">Last Name *</label>
+          <input type="text" id="popup_last_name" name="last_name" required>
         </div>
       </div>
 
       <div class="row-2">
         <div class="field">
-          <label>Email</label>
-          <input type="email" name="email" required>
+          <label for="popup_email">Email *</label>
+          <input type="email" id="popup_email" name="email" required>
         </div>
         <div class="field">
-          <label>Subject</label>
-          <input type="text" name="subject">
+          <label for="popup_subject">Subject *</label>
+          <input type="text" id="popup_subject" name="subject" required>
         </div>
       </div>
 
       <div class="row-1">
         <div class="field">
-          <label>Message</label>
-          <textarea rows="4" name="message"></textarea>
+          <label for="popup_message">Message *</label>
+          <textarea id="popup_message" rows="4" name="message" required></textarea>
         </div>
       </div>
 
       <div class="row-1">
         <div class="field">
-          <label>Captcha: 1 + 6 = ?</label>
-          <input type="text">
+          <label id="popupCaptchaQuestion" for="popupCaptchaAnswer"></label>
+          <input type="text" id="popupCaptchaAnswer" required placeholder="Enter answer">
         </div>
       </div>
+
+      <div class="response" role="alert" aria-live="polite"></div>
 
       <button type="submit" class="send-btn">Send</button>
 

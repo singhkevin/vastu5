@@ -12,8 +12,8 @@ Version: 1.0
 	jQuery(document).ready(function($) {
    		var $this = $(window);
    		
-   // Menu show Hide
-	var counter = 0;
+   // Menu show Hide (Commented out to avoid conflict with new mobile menu implementation in footer.php)
+	/* var counter = 0;
 	$('.ast_menu_btn').on("click", function(){
 		if( counter === 0) {
 			$('.ast_main_menu_wrapper').addClass('ast_main_menu_hide');
@@ -28,7 +28,7 @@ Version: 1.0
 			counter--;
 		}
 
-	});
+	}); */
 	
 	// Sticky header disabled: keep navigation non-fixed while scrolling.
 		
