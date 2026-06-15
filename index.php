@@ -735,7 +735,8 @@ require __DIR__ . '/require/header.php';
 <!-- TESTIMONIAL SECTION -->
 <section class="ast_testimonial_wrapper ast_toppadder70 ast_bottompadder70" style="position: relative;background: linear-gradient(135deg, #ffffff 0%, #fff8d7 100%);">
   <div class="container">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="ast_heading text-center mb-5">
                 <h2 class="wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.2s">Our <span>Clients Trust Me</span></h2>
 
@@ -746,118 +747,132 @@ require __DIR__ . '/require/header.php';
                   <strong>Genuine feedback from people who experienced positive change</strong>
                  </p>
             </div>
+      </div>
     </div>
     
-    <div class="testimonial-slider">
+    <div class="row align-items-center justify-content-center">
+      <!-- Left Column: Video Testimonial -->
+      <div class="col-lg-5 col-md-12 col-sm-12 col-12 mb-5 mb-lg-0 wow animate__animated animate__fadeInLeft animate__slow" data-wow-delay="0.2s" style="z-index: 2;">
+        <div class="video-testimonial-wrapper text-center">
+          <h4 class="video-testimonial-title">Featured Video Testimonial</h4>
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <iframe src="https://www.youtube.com/embed/jYHWev3F9rs?rel=0&modestbranding=1" title="Vastu Testimonial Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
 
-  <!-- Slide 1 -->
-  <div class="testimonial-slide active">
-    <div class="testimonial-glass">
-      <i class="fa fa-quote-left quote-icon"></i>
-      <p class="testimonial-text">
-        After following the Vastu corrections, my business growth improved
-        significantly within months. Highly practical guidance.
-      </p>
-      <div class="testimonial-user">
-        <div class="user-avatar">R</div>
-        <div>
-          <h5>Ramesh Kumar</h5>
-          <span>Business Owner</span>
+      <!-- Right Column: Text Testimonials -->
+      <div class="col-lg-7 col-md-12 col-sm-12 col-12 wow animate__animated animate__fadeInRight animate__slow" data-wow-delay="0.2s" style="z-index: 2;">
+        <div class="testimonial-slider">
+
+          <!-- Slide 1 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-glass">
+              <i class="fa fa-quote-left quote-icon"></i>
+              <p class="testimonial-text">
+                After following the Vastu corrections, my business growth improved
+                significantly within months. Highly practical guidance.
+              </p>
+              <div class="testimonial-user">
+                <div class="user-avatar">R</div>
+                <div>
+                  <h5>Ramesh Kumar</h5>
+                  <span>Business Owner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-glass">
+              <i class="fa fa-quote-left quote-icon"></i>
+              <p class="testimonial-text">
+                No demolition, no fear — just simple changes with powerful results.
+                Peace and positivity returned to our home.
+              </p>
+              <div class="testimonial-user">
+                <div class="user-avatar">S</div>
+                <div>
+                  <h5>Sunitha Devi</h5>
+                  <span>Homemaker</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-glass">
+              <i class="fa fa-quote-left quote-icon"></i>
+              <p class="testimonial-text">
+                Ethical, confidential and deeply knowledgeable.
+                I strongly recommend Wealth4U with Vastu.
+              </p>
+              <div class="testimonial-user">
+                <div class="user-avatar">A</div>
+                <div>
+                  <h5>Anand Raj</h5>
+                  <span>IT Professional</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 (NEW) -->
+          <div class="testimonial-slide">
+            <div class="testimonial-glass">
+              <i class="fa fa-quote-left quote-icon"></i>
+              <p class="testimonial-text">
+                Career obstacles reduced and clarity improved.
+                The guidance was very practical and reassuring.
+              </p>
+              <div class="testimonial-user">
+                <div class="user-avatar">M</div>
+                <div>
+                  <h5>Meena Shankar</h5>
+                  <span>HR Manager</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 (NEW) -->
+          <div class="testimonial-slide">
+            <div class="testimonial-glass">
+              <i class="fa fa-quote-left quote-icon"></i>
+              <p class="testimonial-text">
+                From stress to stability — the changes really worked.
+                Thank you for such ethical consultation.
+              </p>
+              <div class="testimonial-user">
+                <div class="user-avatar">K</div>
+                <div>
+                  <h5>Karthik R</h5>
+                  <span>Entrepreneur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="testimonial-dots">
+          <span class="dot active" onclick="goSlide(0)"></span>
+          <span class="dot" onclick="goSlide(1)"></span>
+          <span class="dot" onclick="goSlide(2)"></span>
+          <span class="dot" onclick="goSlide(3)"></span>
+          <span class="dot" onclick="goSlide(4)"></span>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Slide 2 -->
-  <div class="testimonial-slide">
-    <div class="testimonial-glass">
-      <i class="fa fa-quote-left quote-icon"></i>
-      <p class="testimonial-text">
-        No demolition, no fear — just simple changes with powerful results.
-        Peace and positivity returned to our home.
-      </p>
-      <div class="testimonial-user">
-        <div class="user-avatar">S</div>
-        <div>
-          <h5>Sunitha Devi</h5>
-          <span>Homemaker</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slide 3 -->
-  <div class="testimonial-slide">
-    <div class="testimonial-glass">
-      <i class="fa fa-quote-left quote-icon"></i>
-      <p class="testimonial-text">
-        Ethical, confidential and deeply knowledgeable.
-        I strongly recommend Wealth4U with Vastu.
-      </p>
-      <div class="testimonial-user">
-        <div class="user-avatar">A</div>
-        <div>
-          <h5>Anand Raj</h5>
-          <span>IT Professional</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slide 4 (NEW) -->
-  <div class="testimonial-slide">
-    <div class="testimonial-glass">
-      <i class="fa fa-quote-left quote-icon"></i>
-      <p class="testimonial-text">
-        Career obstacles reduced and clarity improved.
-        The guidance was very practical and reassuring.
-      </p>
-      <div class="testimonial-user">
-        <div class="user-avatar">M</div>
-        <div>
-          <h5>Meena Shankar</h5>
-          <span>HR Manager</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slide 5 (NEW) -->
-  <div class="testimonial-slide">
-    <div class="testimonial-glass">
-      <i class="fa fa-quote-left quote-icon"></i>
-      <p class="testimonial-text">
-        From stress to stability — the changes really worked.
-        Thank you for such ethical consultation.
-      </p>
-      <div class="testimonial-user">
-        <div class="user-avatar">K</div>
-        <div>
-          <h5>Karthik R</h5>
-          <span>Entrepreneur</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-    <div class="testimonial-dots">
-  <span class="dot active" onclick="goSlide(0)"></span>
-  <span class="dot" onclick="goSlide(1)"></span>
-  <span class="dot" onclick="goSlide(2)"></span>
-  <span class="dot" onclick="goSlide(3)"></span>
-  <span class="dot" onclick="goSlide(4)"></span>
-</div>
 
     <!-- Bottom-right decorative image -->
-   <div class="testimonial-corner-img">
-     <img src="images/new/test.png" alt="Vastu" loading="lazy" />
-   </div>
+    <div class="testimonial-corner-img">
+      <img src="images/new/test.png" alt="Vastu" loading="lazy" />
+    </div>
   </div>
-  
-
 </section>
 
 <style>
@@ -871,6 +886,52 @@ require __DIR__ . '/require/header.php';
 .testimonial-slider {
   max-width: 680px;
   margin: auto;
+}
+
+/* Video Testimonial Mockup styles */
+.video-testimonial-wrapper {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.video-testimonial-title {
+  color: #6b4f3a;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-family: 'Philosopher', sans-serif;
+}
+
+.phone-mockup {
+  position: relative;
+  width: 270px;
+  height: 480px;
+  border: 12px solid #1a1a1a;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  background: #000;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 18px;
+  background: #1a1a1a;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  z-index: 10;
+}
+
+.phone-mockup iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* Slide */
