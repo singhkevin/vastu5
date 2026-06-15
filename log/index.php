@@ -12,6 +12,34 @@ $timezone = new DateTimeZone('Asia/Kolkata');
  */
 $changeLogEntries = [
     [
+        'timestamp' => '2026-06-15 18:32:00',
+        'title' => 'Video Testimonial Embed & Deployment Workflow Cleanup',
+        'items' => [
+            'Restructured the homepage testimonial section into a responsive 2-column layout.',
+            'Embedded client video testimonial (YouTube Short) inside a custom CSS phone mockup frame next to the text slider.',
+            'Aligned the typography of the video section title to use the Philosopher brand font.',
+            'Removed deprecated GitHub Actions FTP deployment workflow in favor of Hostinger native Git Integration (Deploy Key + Webhook).',
+        ],
+    ],
+    [
+        'timestamp' => '2026-05-11 17:18:00',
+        'title' => 'Added New Vastu Blog Articles & Listings',
+        'items' => [
+            'Published three new Vastu articles: Vastu for New Home, Vastu for Office, and Vastu Remedies Without Demolition.',
+            'Updated the blog listing page and configured clean routing for the new article pages.',
+        ],
+    ],
+    [
+        'timestamp' => '2026-05-07 15:29:00',
+        'title' => 'Added Form Validation, Favicon & Security Hardening',
+        'items' => [
+            'Added JS client-side validation for the consultation contact form.',
+            'Configured favicon.ico for site branding.',
+            'Applied directory listing protection across CSS directories and removed deprecated log.php.',
+            'Hardened Apache routing rules in .htaccess.',
+        ],
+    ],
+    [
         'timestamp' => '2026-04-20 20:05:00',
         'title' => 'About Swikar: Read More placement fix',
         'items' => [
