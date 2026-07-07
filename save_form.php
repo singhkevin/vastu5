@@ -17,6 +17,24 @@ if ($firstName === '' || $lastName === '' || $subject === '' || $message === '' 
     exit;
 }
 
+// ---------------------------------------------------------
+// Send Email Notification (Fallback/Backup)
+// ---------------------------------------------------------
+$to = 'swikar.sethi@vastu5.com';
+$mailSubject = 'New Contact Form Lead: ' . $subject;
+$mailBody = "You have received a new lead from the contact form.\n\n";
+$mailBody .= "Name: $firstName $lastName\n";
+$mailBody .= "Email: $email\n";
+$mailBody .= "Subject: $subject\n";
+$mailBody .= "Message:\n$message\n";
+
+$headers = "From: no-reply@vastu5.com\r\n";
+$headers .= "Reply-To: $email\r\n";
+$headers .= "Cc: kevin@viralinbound.com\r\n";
+
+@mail($to, $mailSubject, $mailBody, $headers);
+// ---------------------------------------------------------
+
 $url = 'https://script.google.com/macros/s/AKfycbzIfadmRGiSwTSa9lirj9FyNSXeV6XXF7RygkrRwtDaAfFOdelLGhsoUR3CHXwJTzTMaw/exec';
 $data = [
     'first_name' => $firstName,
