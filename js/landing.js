@@ -1,18 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Capture UTM Parameters
+    // 1. Capture & Persist UTM Parameters (with sessionStorage fallback)
     const urlParams = new URLSearchParams(window.location.search);
     const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    const consultationForm = document.getElementById('consultationForm');
     
-    utmParams.forEach(param => {
-        const val = urlParams.get(param);
-        if (val) {
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = param;
-            hiddenInput.value = val;
-            document.getElementById('consultationForm').appendChild(hiddenInput);
-        }
-    });
+    if (consultationForm) {
+        utmParams.forEach(param => {
+            let val = urlParams.get(param);
+            if (val) {
+                sessionStorage.setItem(param, val);
+            } else {
+                val = sessionStorage.getItem(param);
+            }
+            if (val && !consultationForm.querySelector(`input[name="${param}"]`)) {
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = param;
+                hiddenInput.value = val;
+                consultationForm.appendChild(hiddenInput);
+            }
+        });
+    }
 
     // 2. Smooth Scroll for CTA
     const ctaButton = document.querySelector('.cta-button');

@@ -13,8 +13,8 @@ $page_title = 'Book Your Vastu Consultation | Vastu5';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/landing.css">
-    <!-- Meta Pixel Code Placeholder -->
-    <!-- <script>
+    <!-- Meta Pixel Code -->
+    <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -23,12 +23,12 @@ $page_title = 'Book Your Vastu Consultation | Vastu5';
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('init', '1725660742080649');
       fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-    /></noscript> -->
+      src="https://www.facebook.com/tr?id=1725660742080649&ev=PageView&noscript=1"
+    /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
 <body>
@@ -57,7 +57,7 @@ $page_title = 'Book Your Vastu Consultation | Vastu5';
                 Thank you for reaching out to me. To understand your situation better, please answer a minimum of any two of these simple questions:
             </div>
 
-            <form id="consultationForm" action="save_consultation.php" method="POST" class="consultation-form">
+            <form id="consultationForm" action="save_consultation" method="POST" class="consultation-form">
                 
                 <div class="validation-message" id="validationMessage"></div>
 

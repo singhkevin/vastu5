@@ -15,8 +15,7 @@ $page_title = 'Thank You | Vastu5';
     <link rel="stylesheet" href="css/landing.css">
     
     <!-- Meta Pixel Code -->
-    <!-- 
-      <script>
+    <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -25,14 +24,13 @@ $page_title = 'Thank You | Vastu5';
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('init', '1725660742080649');
       fbq('track', 'PageView');
       fbq('track', 'Lead'); // Fires on load of this thank you page
-      </script>
-      <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1"
-      /></noscript> 
-    -->
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1725660742080649&ev=Lead&noscript=1"
+    /></noscript> 
     <!-- End Meta Pixel Code -->
 
     <!-- Google tag (gtag.js) Event snippet for Conversion -->

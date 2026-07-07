@@ -3,3 +3,11 @@ ftp-mirror/
 .audit_extract/
 .ftpquota
 log/*.log
+
+# Local development helpers
+router.php
+mock_sendmail.php
+local-mails.php
+run.sh
+log/mails/
+

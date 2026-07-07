@@ -3,6 +3,39 @@
  * Handles both the main contact form and the popup contact form.
  */
 document.addEventListener("DOMContentLoaded", function () {
+    // 1. Capture & Persist UTM Parameters (supports URL and sessionStorage fallback across pages)
+    const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    const urlParams = new URLSearchParams(window.location.search);
+    const activeUtms = {};
+
+    utmParams.forEach(param => {
+        let val = urlParams.get(param);
+        if (val) {
+            sessionStorage.setItem(param, val);
+        } else {
+            val = sessionStorage.getItem(param);
+        }
+        if (val) {
+            activeUtms[param] = val;
+        }
+    });
+
+    // Inject UTM parameters into all known lead capture forms on the page
+    ["contactForm", "popupContactForm", "consultationForm"].forEach(formId => {
+        const formEl = document.getElementById(formId);
+        if (formEl) {
+            Object.entries(activeUtms).forEach(([param, val]) => {
+                if (!formEl.querySelector(`input[name="${param}"]`)) {
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = param;
+                    hiddenInput.value = val;
+                    formEl.appendChild(hiddenInput);
+                }
+            });
+        }
+    });
+
     const forms = [
         {
             id: "contactForm",

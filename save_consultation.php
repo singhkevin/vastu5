@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /consultation.php');
+    header('Location: /consultation');
     exit;
 }
 
@@ -12,7 +12,7 @@ $phone = trim((string) ($_POST['phone'] ?? ''));
 $email = trim((string) ($_POST['email'] ?? ''));
 
 if ($firstName === '' || $phone === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: /consultation.php?status=error&reason=invalid_contact');
+    header('Location: /consultation?status=error&reason=invalid_contact');
     exit;
 }
 
@@ -38,7 +38,7 @@ if ($q6 !== '') $answeredCount++;
 if ($q7 !== '') $answeredCount++;
 
 if ($answeredCount < 2) {
-    header('Location: /consultation.php?status=error&reason=incomplete');
+    header('Location: /consultation?status=error&reason=incomplete');
     exit;
 }
 
@@ -46,6 +46,8 @@ if ($answeredCount < 2) {
 $utmSource = trim((string) ($_POST['utm_source'] ?? ''));
 $utmMedium = trim((string) ($_POST['utm_medium'] ?? ''));
 $utmCampaign = trim((string) ($_POST['utm_campaign'] ?? ''));
+$utmContent = trim((string) ($_POST['utm_content'] ?? ''));
+$utmTerm = trim((string) ($_POST['utm_term'] ?? ''));
 
 // 5. Format message for the existing Apps Script
 $formattedMessage = "Phone: $phone\n\n--- Consultation Answers ---\n";
@@ -57,9 +59,13 @@ if ($q5) $formattedMessage .= "Q5 (Previous Remedies): $q5\n";
 if ($q6) $formattedMessage .= "Q6 (Location): $q6\n";
 if ($q7) $formattedMessage .= "Q7 (Other Info): $q7\n";
 
-if ($utmSource || $utmMedium || $utmCampaign) {
+if ($utmSource || $utmMedium || $utmCampaign || $utmContent || $utmTerm) {
     $formattedMessage .= "\n--- Tracking Info ---\n";
-    $formattedMessage .= "Source: $utmSource | Medium: $utmMedium | Campaign: $utmCampaign\n";
+    $formattedMessage .= "Source: $utmSource | Medium: $utmMedium | Campaign: $utmCampaign";
+    if ($utmContent || $utmTerm) {
+        $formattedMessage .= " | Content: $utmContent | Term: $utmTerm";
+    }
+    $formattedMessage .= "\n";
 }
 
 // ---------------------------------------------------------
@@ -74,7 +80,7 @@ $mailBody .= $formattedMessage;
 
 $headers = "From: no-reply@vastu5.com\r\n";
 $headers .= "Reply-To: $email\r\n";
-$headers .= "Cc: kevin@viralinbound.com\r\n";
+$headers .= "Cc: kevin@viralinbound.com, ashutosh.c@viralinbound.com\r\n";
 
 @mail($to, $mailSubject, $mailBody, $headers);
 // ---------------------------------------------------------
@@ -94,7 +100,8 @@ $data = [
     'phone' => $phone,
     'q1' => $q1, 'q2' => $q2, 'q3' => $q3, 'q4' => $q4, 
     'q5' => $q5, 'q6_city' => $q6_city, 'q6_country' => $q6_country, 'q7' => $q7,
-    'utm_source' => $utmSource, 'utm_medium' => $utmMedium, 'utm_campaign' => $utmCampaign
+    'utm_source' => $utmSource, 'utm_medium' => $utmMedium, 'utm_campaign' => $utmCampaign,
+    'utm_content' => $utmContent, 'utm_term' => $utmTerm
 ];
 
 $payload = json_encode($data);
@@ -118,13 +125,13 @@ if ($curlErrno !== 0 || $response === false || $httpCode < 200 || $httpCode >= 3
     
     // Still send to thank you page so user experience isn't broken, 
     // since we saved it locally.
-    header('Location: /thank-you.php');
+    header('Location: /thank-you');
     exit;
 }
 
 $result = json_decode((string) $response, true);
 if (is_array($result) && ($result['status'] ?? '') === 'success') {
-    header('Location: /thank-you.php');
+    header('Location: /thank-you');
     exit;
 }
 
@@ -132,5 +139,5 @@ if (is_array($result) && ($result['status'] ?? '') === 'success') {
 $logData = date('Y-m-d H:i:s') . " | Webhook Error | " . json_encode($data) . "\n";
 @file_put_contents(__DIR__ . '/log/failed_leads.log', $logData, FILE_APPEND);
 
-header('Location: /thank-you.php');
+header('Location: /thank-you');
 exit;

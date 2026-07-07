@@ -1179,7 +1179,7 @@ showSlide(currentSlide);
 	</div>
 	<div class="ast_contact_map" id="contact">
 		<div class="ast_contact_form wow animate__animated animate__fadeInUp animate__slow" data-wow-delay="0.6s">
-			<form id="contactForm" action="save_form.php" method="POST" novalidate>
+			<form id="contactForm" action="save_form" method="POST" novalidate>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
 					<label for="first_name">first name *</label>

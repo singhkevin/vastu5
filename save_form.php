@@ -12,6 +12,12 @@ $email = trim((string) ($_POST['email'] ?? ''));
 $subject = trim((string) ($_POST['subject'] ?? ''));
 $message = trim((string) ($_POST['message'] ?? ''));
 
+$utmSource = trim((string) ($_POST['utm_source'] ?? ''));
+$utmMedium = trim((string) ($_POST['utm_medium'] ?? ''));
+$utmCampaign = trim((string) ($_POST['utm_campaign'] ?? ''));
+$utmContent = trim((string) ($_POST['utm_content'] ?? ''));
+$utmTerm = trim((string) ($_POST['utm_term'] ?? ''));
+
 if ($firstName === '' || $lastName === '' || $subject === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('Location: /#contact?status=error&reason=invalid');
     exit;
@@ -28,9 +34,18 @@ $mailBody .= "Email: $email\n";
 $mailBody .= "Subject: $subject\n";
 $mailBody .= "Message:\n$message\n";
 
+if ($utmSource || $utmMedium || $utmCampaign || $utmContent || $utmTerm) {
+    $mailBody .= "\n--- Tracking Info ---\n";
+    $mailBody .= "Source: $utmSource | Medium: $utmMedium | Campaign: $utmCampaign";
+    if ($utmContent || $utmTerm) {
+        $mailBody .= " | Content: $utmContent | Term: $utmTerm";
+    }
+    $mailBody .= "\n";
+}
+
 $headers = "From: no-reply@vastu5.com\r\n";
 $headers .= "Reply-To: $email\r\n";
-$headers .= "Cc: kevin@viralinbound.com\r\n";
+$headers .= "Cc: kevin@viralinbound.com, ashutosh.c@viralinbound.com\r\n";
 
 @mail($to, $mailSubject, $mailBody, $headers);
 // ---------------------------------------------------------
@@ -42,6 +57,11 @@ $data = [
     'email' => $email,
     'subject' => $subject,
     'message' => $message,
+    'utm_source' => $utmSource,
+    'utm_medium' => $utmMedium,
+    'utm_campaign' => $utmCampaign,
+    'utm_content' => $utmContent,
+    'utm_term' => $utmTerm,
 ];
 
 $payload = json_encode($data);
@@ -68,6 +88,9 @@ $curlErrno = curl_errno($ch);
 curl_close($ch);
 
 if ($curlErrno !== 0 || $response === false || $httpCode < 200 || $httpCode >= 300) {
+    $logData = date('Y-m-d H:i:s') . " | Contact Webhook Error | " . json_encode($data) . "\n";
+    @file_put_contents(__DIR__ . '/log/failed_leads.log', $logData, FILE_APPEND);
+    
     header('Location: /#contact?status=error&reason=upstream');
     exit;
 }
@@ -77,6 +100,9 @@ if (is_array($result) && ($result['status'] ?? '') === 'success') {
     header('Location: /success/');
     exit;
 }
+
+$logData = date('Y-m-d H:i:s') . " | Contact Webhook Error | " . json_encode($data) . "\n";
+@file_put_contents(__DIR__ . '/log/failed_leads.log', $logData, FILE_APPEND);
 
 header('Location: /#contact?status=error&reason=submit');
 exit;
