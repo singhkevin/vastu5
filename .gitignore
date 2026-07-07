@@ -2,3 +2,4 @@
 ftp-mirror/
 .audit_extract/
 .ftpquota
+log/*.log
