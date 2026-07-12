@@ -68,7 +68,7 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
     <main class="form-section" id="booking-form">
         <div class="container">
             <div class="form-intro">
-                Thank you for reaching out to me. To understand your situation better, please answer the questions below as thoroughly as you can — the more detail you share, the better prepared Acharya ji will be for your consultation. (Question 7 is optional.)
+                Thank you for reaching out to me. To understand your situation better, please answer the questions below as thoroughly as you can — the more detail you share, the better prepared I will be for your consultation. (Question 7 is optional.)
             </div>
 
             <form id="consultationForm" action="save_consultation" method="POST" class="consultation-form">
