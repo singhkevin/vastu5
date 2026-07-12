@@ -65,7 +65,7 @@ $countries = require __DIR__ . '/countries.php';
                         <div class="phone-row">
                             <select id="phone_country_code" aria-label="Country code">
                                 <?php foreach ($countries as $c): ?>
-                                <option value="<?= htmlspecialchars($c['code']) ?>"<?= $c['name'] === 'India' ? ' selected' : '' ?>>+<?= htmlspecialchars($c['code']) ?> <?= htmlspecialchars($c['name']) ?></option>
+                                <option value="<?= htmlspecialchars($c['code']) ?>" title="<?= htmlspecialchars($c['name']) ?>"<?= $c['name'] === 'India' ? ' selected' : '' ?>><?= country_flag_emoji($c['iso2']) ?> +<?= htmlspecialchars($c['code']) ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <input type="tel" id="phone_number" required
