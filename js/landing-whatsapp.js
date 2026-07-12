@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. WhatsApp OTP Verification
-    const phoneInput = document.getElementById('phone');
+    const phoneCountryCode = document.getElementById('phone_country_code');
+    const phoneNumberInput = document.getElementById('phone_number');
+    const phoneInput = document.getElementById('phone'); // hidden, combined value submitted to the server
     const sendOtpBtn = document.getElementById('sendOtpBtn');
     const verifyOtpBtn = document.getElementById('verifyOtpBtn');
     const otpSection = document.getElementById('otpSection');
@@ -55,6 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const otpStatus = document.getElementById('otpStatus');
 
     const normalizePhone = (value) => value.replace(/\D/g, '');
+
+    function syncPhone() {
+        if (phoneInput && phoneCountryCode && phoneNumberInput) {
+            phoneInput.value = `+${phoneCountryCode.value} ${phoneNumberInput.value.trim()}`;
+        }
+    }
+
+    if (phoneCountryCode && phoneNumberInput) {
+        syncPhone();
+        phoneCountryCode.addEventListener('change', syncPhone);
+        phoneNumberInput.addEventListener('input', syncPhone);
+    }
 
     let verifiedPhone = null;
     let resendCooldown = 0;
@@ -83,10 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sendOtpBtn && phoneInput) {
         sendOtpBtn.addEventListener('click', () => {
+            syncPhone();
             const phone = normalizePhone(phoneInput.value);
-            if (!phoneInput.checkValidity() || phone === '') {
+            if (!phoneNumberInput.checkValidity() || phone === '') {
                 showOtpStatus('Please enter a valid WhatsApp number first.', 'error');
-                phoneInput.focus();
+                phoneNumberInput.focus();
                 return;
             }
 
@@ -144,7 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     verifyOtpBtn.textContent = 'Verify';
                     if (data.status === 'verified') {
                         verifiedPhone = phone;
-                        phoneInput.readOnly = true;
+                        phoneCountryCode.disabled = true;
+                        phoneNumberInput.readOnly = true;
                         otpSection.style.display = 'none';
                         clearInterval(cooldownTimer);
                         sendOtpBtn.style.display = 'none';
@@ -162,15 +178,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Reset verification if the user edits the phone number after verifying
-    if (phoneInput) {
-        phoneInput.addEventListener('input', () => {
+    if (phoneNumberInput && phoneCountryCode) {
+        const resetIfChanged = () => {
             if (verifiedPhone !== null && normalizePhone(phoneInput.value) !== verifiedPhone) {
                 verifiedPhone = null;
-                phoneInput.readOnly = false;
+                phoneCountryCode.disabled = false;
+                phoneNumberInput.readOnly = false;
                 sendOtpBtn.style.display = '';
                 showOtpStatus('', '');
             }
-        });
+        };
+        phoneNumberInput.addEventListener('input', resetIfChanged);
+        phoneCountryCode.addEventListener('change', resetIfChanged);
     }
 
     // 5. Form Validation (Q1 and Q5 required; WhatsApp number must be OTP-verified; Q7 optional)

@@ -1,8 +1,12 @@
 <?php
-// consultation.php - Vastu Consultation Landing Page (SMS OTP via Brevo)
+// consultation-sms.php - TEST VARIANT: SMS OTP via Brevo instead of WhatsApp OTP via Wati.
+// Duplicate of consultation.php, isolated for experimentation. Does not affect the live page.
 session_start();
-$page_title = 'Book Your Vastu Consultation | Vastu5';
-$countries = require __DIR__ . '/countries.php';
+$page_title = 'Book Your Vastu Consultation (SMS OTP test) | Vastu5';
+
+$captchaNum1 = random_int(1, 9);
+$captchaNum2 = random_int(1, 9);
+$_SESSION['captcha_answer'] = $captchaNum1 + $captchaNum2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,27 +15,11 @@ $countries = require __DIR__ . '/countries.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($page_title) ?></title>
     <meta name="description" content="Book a practical vastu consultation for your home or business.">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/landing.css">
-    <!-- Meta Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1725660742080649');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1725660742080649&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -59,7 +47,7 @@ $countries = require __DIR__ . '/countries.php';
                 Thank you for reaching out to me. To understand your situation better, please answer the questions below as thoroughly as you can — the more detail you share, the better prepared Acharya ji will be for your consultation. (Question 7 is optional.)
             </div>
 
-            <form id="consultationForm" action="save_consultation" method="POST" class="consultation-form">
+            <form id="consultationForm" action="save_consultation_sms" method="POST" class="consultation-form">
 
                 <div class="validation-message" id="validationMessage"></div>
 
@@ -73,19 +61,11 @@ $countries = require __DIR__ . '/countries.php';
                     </div>
 
                     <div class="form-group">
-                        <label for="phone_number">Phone Number <span class="required">*</span></label>
-                        <div class="phone-row">
-                            <select id="phone_country_code" aria-label="Country code">
-                                <?php foreach ($countries as $c): ?>
-                                <option value="<?= htmlspecialchars($c['code']) ?>"<?= $c['name'] === 'India' ? ' selected' : '' ?>>+<?= htmlspecialchars($c['code']) ?> <?= htmlspecialchars($c['name']) ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <input type="tel" id="phone_number" required
-                                   inputmode="numeric" pattern="[0-9]{6,14}"
-                                   title="Phone number without the country code (digits only)."
-                                   placeholder="9876543210">
-                        </div>
-                        <input type="hidden" id="phone" name="phone">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required
+                               pattern="[0-9+()\s\-]{7,20}"
+                               title="A valid phone number, 7-20 characters (digits, spaces, +, -, ( ) allowed)."
+                               placeholder="+91 9876543210">
                     </div>
                 </div>
 
@@ -156,12 +136,8 @@ $countries = require __DIR__ . '/countries.php';
                     <div class="form-row">
                         <input type="text" id="q6_city" name="q6_city" placeholder="City"
                                pattern="[A-Za-z\s'\-]{2,50}" title="Letters only (min 2 characters).">
-                        <select id="q6_country" name="q6_country">
-                            <option value="">Select country...</option>
-                            <?php foreach ($countries as $c): ?>
-                            <option value="<?= htmlspecialchars($c['name']) ?>"<?= $c['name'] === 'India' ? ' selected' : '' ?>><?= htmlspecialchars($c['name']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <input type="text" id="q6_country" name="q6_country" placeholder="Country"
+                               pattern="[A-Za-z\s'\-]{2,50}" title="Letters only (min 2 characters).">
                     </div>
                 </div>
 
@@ -187,6 +163,12 @@ $countries = require __DIR__ . '/countries.php';
                     </div>
 
                     <div class="otp-status" id="otpStatus"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="captcha_answer">What is <?= $captchaNum1 ?> + <?= $captchaNum2 ?>? <span class="required">*</span></label>
+                    <input type="number" id="captcha_answer" name="captcha_answer" min="0" max="18" step="1"
+                           inputmode="numeric" autocomplete="off" required placeholder="Your answer">
                 </div>
 
                 <button type="submit" class="cta-button submit-btn">Send My Details</button>

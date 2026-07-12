@@ -3,6 +3,7 @@ ftp-mirror/
 .audit_extract/
 .ftpquota
 log/*.log
+config.php
 
 # Local development helpers
 router.php

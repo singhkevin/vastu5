@@ -156,6 +156,7 @@ header {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
+.form-group input[type="number"],
 .form-group select,
 .form-group textarea {
   width: 100%;
@@ -166,6 +167,20 @@ header {
   font-size: 1rem;
   transition: var(--transition);
   background-color: #f9fafb;
+}
+
+.form-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#captcha_answer {
+  width: 140px;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .form-group input:focus,
@@ -180,6 +195,24 @@ header {
 .form-group textarea {
   resize: vertical;
   min-height: 100px;
+}
+
+.char-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.char-hint.char-hint-ok {
+  color: var(--success-color);
+}
+
+.privacy-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: -10px 0 20px;
 }
 
 .radio-group {
@@ -222,6 +255,65 @@ header {
   margin-bottom: 20px;
   font-weight: 500;
   border: 1px solid #f87171;
+}
+
+/* OTP Email Verification */
+.otp-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.phone-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.phone-row select {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 150px;
+}
+
+.phone-row input {
+  flex: 1;
+}
+
+.otp-row input {
+  flex: 1;
+}
+
+.otp-btn {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.otp-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.otp-section {
+  display: none;
+  margin-top: 12px;
+}
+
+.otp-status {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.otp-status.success {
+  color: var(--success-color);
+}
+
+.otp-status.error {
+  color: var(--error-color);
 }
 
 /* Thank You Page */

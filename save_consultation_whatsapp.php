@@ -28,14 +28,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// 2. Require OTP-verified phone number (set by verify_otp_sms.php for this session)
+// 2. Require OTP-verified WhatsApp number (set by verify_otp.php for this session)
 $normalizedPhone = preg_replace('/\D/', '', $phone);
-$verifiedPhone = $_SESSION['sms_otp_verified_phone'] ?? null;
+$verifiedPhone = $_SESSION['otp_verified_phone'] ?? null;
 if ($verifiedPhone === null || $verifiedPhone !== $normalizedPhone) {
     header('Location: /consultation?status=error&reason=phone_not_verified');
     exit;
 }
-unset($_SESSION['sms_otp_verified_phone']); // one-time use per submission
+unset($_SESSION['otp_verified_phone']); // one-time use per submission
 
 // 3. Collect Qualification Questions
 $q1 = trim((string) ($_POST['q1'] ?? ''));
