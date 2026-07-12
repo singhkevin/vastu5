@@ -48,8 +48,8 @@ $q6_country = trim((string) ($_POST['q6_country'] ?? ''));
 $q6 = trim($q6_city . ' ' . $q6_country);
 $q7 = trim((string) ($_POST['q7'] ?? ''));
 
-// 4. Server-side validation (Q1, Q3, Q4, Q5 required; Q2, Q6, Q7 optional)
-if ($q1 === '' || $q3 === '' || $q4 === '' || $q5 === '') {
+// 4. Server-side validation (Q1, Q3, Q4, Q5, Q6 required; Q2, Q7 optional)
+if ($q1 === '' || $q3 === '' || $q4 === '' || $q5 === '' || $q6_city === '' || $q6_country === '') {
     header('Location: /consultation?status=error&reason=incomplete');
     exit;
 }
@@ -68,12 +68,12 @@ if ($q7 !== '' && mb_strlen($q7) < 20) {
     exit;
 }
 
-// Q6 city/country: optional, but must look like place names if provided
-if ($q6_city !== '' && !preg_match("/^[A-Za-z\s'\-]{2,50}$/", $q6_city)) {
+// Q6 city/country: must look like place names
+if (!preg_match("/^[A-Za-z\s'\-]{2,50}$/", $q6_city)) {
     header('Location: /consultation?status=error&reason=invalid_location');
     exit;
 }
-if ($q6_country !== '' && !preg_match("/^[A-Za-z\s'\-]{2,50}$/", $q6_country)) {
+if (!preg_match("/^[A-Za-z\s'\-]{2,50}$/", $q6_country)) {
     header('Location: /consultation?status=error&reason=invalid_location');
     exit;
 }

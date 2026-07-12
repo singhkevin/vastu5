@@ -152,11 +152,11 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
                 </div>
 
                 <div class="form-group">
-                    <label>6. In which city and country is your property located?</label>
+                    <label>6. In which city and country is your property located? <span class="required">*</span></label>
                     <div class="form-row">
-                        <input type="text" id="q6_city" name="q6_city" placeholder="City"
+                        <input type="text" id="q6_city" name="q6_city" placeholder="City" required
                                pattern="[A-Za-z\s'\-]{2,50}" title="Letters only (min 2 characters).">
-                        <select id="q6_country" name="q6_country">
+                        <select id="q6_country" name="q6_country" required>
                             <option value="">Select country...</option>
                             <?php foreach ($countries as $c): ?>
                             <option value="<?= htmlspecialchars($c['name']) ?>"<?= $c['name'] === 'India' ? ' selected' : '' ?>><?= htmlspecialchars($c['name']) ?></option>
