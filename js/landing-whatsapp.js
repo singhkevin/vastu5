@@ -196,10 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('consultationForm');
     const validationMessage = document.getElementById('validationMessage');
     const confirmOverlay = document.getElementById('confirmOverlay');
+    const submitBtn = document.getElementById('submitBtn');
+    let isSubmitting = false;
 
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            if (isSubmitting) return;
 
             const OPEN_MIN_LEN = 20;
             const missing = [];
@@ -227,6 +231,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Hide validation if successful
             validationMessage.style.display = 'none';
+
+            // Prevent duplicate submissions (double-click, Enter key, etc.)
+            isSubmitting = true;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
 
             // Show confirmation overlay briefly
             confirmOverlay.classList.add('show');

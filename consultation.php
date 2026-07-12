@@ -3,6 +3,18 @@
 session_start();
 $page_title = 'Book Your Vastu Consultation | Vastu5';
 $countries = require __DIR__ . '/countries.php';
+
+$errorMessages = [
+    'invalid_name' => 'Please enter a valid full name (letters, spaces, hyphens and apostrophes only, at least 2 characters).',
+    'invalid_phone' => 'Please enter a valid phone number.',
+    'invalid_contact' => 'Please enter a valid email address.',
+    'phone_not_verified' => "We couldn't confirm your phone number — please request a new code and verify it before submitting.",
+    'incomplete' => 'Please answer all required questions before submitting.',
+    'too_short' => 'One or more of your answers needs a bit more detail — please expand it and resubmit.',
+    'invalid_location' => 'Please enter a valid city/country (letters only).',
+];
+$errorReason = (string) ($_GET['reason'] ?? '');
+$errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something went wrong with your submission. Please check your answers and try again.' : '');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +73,7 @@ $countries = require __DIR__ . '/countries.php';
 
             <form id="consultationForm" action="save_consultation" method="POST" class="consultation-form">
 
-                <div class="validation-message" id="validationMessage"></div>
+                <div class="validation-message" id="validationMessage"<?= $errorText !== '' ? ' style="display:block"' : '' ?>><?= htmlspecialchars($errorText) ?></div>
 
                 <div class="form-row">
                     <div class="form-group">
@@ -69,13 +81,13 @@ $countries = require __DIR__ . '/countries.php';
                         <input type="text" id="first_name" name="first_name" required
                                minlength="2" maxlength="60" pattern="[A-Za-z\s'\-]{2,60}"
                                title="Letters, spaces, hyphens and apostrophes only (min 2 characters)."
-                               placeholder="John Doe">
+                               placeholder="John Doe" autocomplete="name">
                     </div>
 
                     <div class="form-group">
                         <label for="phone_number">Phone Number <span class="required">*</span></label>
                         <div class="phone-row">
-                            <select id="phone_country_code" aria-label="Country code">
+                            <select id="phone_country_code" aria-label="Country code" autocomplete="tel-country-code">
                                 <?php foreach ($countries as $c): ?>
                                 <option value="<?= htmlspecialchars($c['code']) ?>" title="<?= htmlspecialchars($c['name']) ?>"<?= $c['name'] === 'India' ? ' selected' : '' ?>><?= country_flag_emoji($c['iso2']) ?> +<?= htmlspecialchars($c['code']) ?></option>
                                 <?php endforeach; ?>
@@ -83,7 +95,7 @@ $countries = require __DIR__ . '/countries.php';
                             <input type="tel" id="phone_number" required
                                    inputmode="numeric" pattern="[0-9]{6,14}"
                                    title="Phone number without the country code (digits only)."
-                                   placeholder="9876543210">
+                                   placeholder="9876543210" autocomplete="tel-national">
                         </div>
                         <input type="hidden" id="phone" name="phone">
                     </div>
@@ -91,7 +103,7 @@ $countries = require __DIR__ . '/countries.php';
 
                 <div class="form-group">
                     <label for="email">Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    <input type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email">
                 </div>
 
                 <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 30px 0;">
@@ -189,10 +201,18 @@ $countries = require __DIR__ . '/countries.php';
                     <div class="otp-status" id="otpStatus"></div>
                 </div>
 
-                <button type="submit" class="cta-button submit-btn">Send My Details</button>
+                <button type="submit" id="submitBtn" class="cta-button submit-btn">Send My Details</button>
             </form>
         </div>
     </main>
+
+    <?php if ($errorText !== ''): ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('validationMessage')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+    <?php endif; ?>
 
     <!-- Confirmation Overlay (shown via JS before actual submit) -->
     <div class="confirm-overlay" id="confirmOverlay">
