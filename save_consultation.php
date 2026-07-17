@@ -114,7 +114,7 @@ $headers .= "Cc: kevin@viralinbound.com, ashutosh.c@viralinbound.com\r\n";
 // ---------------------------------------------------------
 
 // Prepare data for the existing webhook
-$url = 'https://script.google.com/macros/s/AKfycbyirFh7_dRfeuxENVUGbi0iS5UbFWe20p3ZmPB6kAYQpCuSfqzdeEgzGrhsUk5Z9hdz/exec';
+$url = 'https://script.google.com/macros/s/AKfycbx01V3SV4J9ijjQPMdf58Bj7jLSuYB0GLvV3E9uTff8XVzi4AImpCqvBDeYAr9jndjL/exec';
 
 // Send specific fields expected by script, plus all new ones in case script accepts dynamic fields
 $data = [
@@ -138,6 +138,10 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+// Apps Script web apps answer POSTs with a 302 redirect to the JSON output,
+// so the redirect must be followed to read the real response.
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 
