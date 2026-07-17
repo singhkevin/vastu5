@@ -54,15 +54,7 @@ if ($q1 === '' || $q3 === '' || $q4 === '' || $q5 === '' || $q6_city === '' || $
     exit;
 }
 
-// Q1 needs at least 100 characters; Q5 and Q7 (if answered) need at least 20
-if (mb_strlen($q1) < 100) {
-    header('Location: /consultation?status=error&reason=too_short');
-    exit;
-}
-if (mb_strlen($q5) < 20) {
-    header('Location: /consultation?status=error&reason=too_short');
-    exit;
-}
+// Q7 (if answered) needs at least 20 characters
 if ($q7 !== '' && mb_strlen($q7) < 20) {
     header('Location: /consultation?status=error&reason=too_short');
     exit;
@@ -122,7 +114,7 @@ $headers .= "Cc: kevin@viralinbound.com, ashutosh.c@viralinbound.com\r\n";
 // ---------------------------------------------------------
 
 // Prepare data for the existing webhook
-$url = 'https://script.google.com/macros/s/AKfycbzIfadmRGiSwTSa9lirj9FyNSXeV6XXF7RygkrRwtDaAfFOdelLGhsoUR3CHXwJTzTMaw/exec';
+$url = 'https://script.google.com/macros/s/AKfycbyirFh7_dRfeuxENVUGbi0iS5UbFWe20p3ZmPB6kAYQpCuSfqzdeEgzGrhsUk5Z9hdz/exec';
 
 // Send specific fields expected by script, plus all new ones in case script accepts dynamic fields
 $data = [

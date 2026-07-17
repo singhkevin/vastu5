@@ -122,7 +122,7 @@ $headers .= "Cc: kevin@viralinbound.com, ashutosh.c@viralinbound.com\r\n";
 // ---------------------------------------------------------
 
 // Prepare data for the existing webhook
-$url = 'https://script.google.com/macros/s/AKfycbzIfadmRGiSwTSa9lirj9FyNSXeV6XXF7RygkrRwtDaAfFOdelLGhsoUR3CHXwJTzTMaw/exec';
+$url = 'https://script.google.com/macros/s/AKfycbyirFh7_dRfeuxENVUGbi0iS5UbFWe20p3ZmPB6kAYQpCuSfqzdeEgzGrhsUk5Z9hdz/exec';
 
 // Send specific fields expected by script, plus all new ones in case script accepts dynamic fields
 $data = [

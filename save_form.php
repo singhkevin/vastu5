@@ -50,7 +50,7 @@ $headers .= "Cc: kevin@viralinbound.com, ashutosh.c@viralinbound.com\r\n";
 @mail($to, $mailSubject, $mailBody, $headers);
 // ---------------------------------------------------------
 
-$url = 'https://script.google.com/macros/s/AKfycbzIfadmRGiSwTSa9lirj9FyNSXeV6XXF7RygkrRwtDaAfFOdelLGhsoUR3CHXwJTzTMaw/exec';
+$url = 'https://script.google.com/macros/s/AKfycbyirFh7_dRfeuxENVUGbi0iS5UbFWe20p3ZmPB6kAYQpCuSfqzdeEgzGrhsUk5Z9hdz/exec';
 $data = [
     'first_name' => $firstName,
     'last_name' => $lastName,

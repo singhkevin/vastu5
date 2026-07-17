@@ -65,6 +65,23 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
         </div>
     </header>
 
+    <!-- Hidden until the real video is ready: remove style="display: none;" to show -->
+    <section class="video-section" style="display: none;">
+        <div class="container">
+            <h2>Watch: My Work, Approach & Solutions</h2>
+            <p>A short introduction to who I am, how I work, and the results my clients have seen.</p>
+
+            <!-- VIDEO PLACEHOLDER: replace this div with your real video embed
+                 (e.g. <iframe> for YouTube/Vimeo, or a <video> tag) keeping class="video-frame" -->
+            <div class="video-frame video-placeholder">
+                <div class="video-placeholder-inner">
+                    <span class="video-play-icon" aria-hidden="true">&#9654;</span>
+                    <span>Video coming soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main class="form-section" id="booking-form">
         <div class="container">
             <div class="form-intro">
@@ -112,10 +129,8 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
 
                 <div class="form-group">
                     <label for="q1">1. What made you contact me today? (What problem are you facing?) <span class="required">*</span></label>
-                    <textarea id="q1" name="q1" required minlength="100"
-                              title="Please write at least 100 characters."
-                              placeholder="Describe your situation in detail (minimum 100 characters)..."></textarea>
-                    <small class="char-hint"><span id="q1CharCount">0</span> / 100 characters minimum</small>
+                    <textarea id="q1" name="q1" required
+                              placeholder="Describe your situation in detail..."></textarea>
                 </div>
 
                 <div class="form-group">
