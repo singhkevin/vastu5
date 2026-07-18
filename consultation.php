@@ -65,19 +65,16 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
         </div>
     </header>
 
-    <!-- Hidden until the real video is ready: remove style="display: none;" to show -->
-    <section class="video-section" style="display: none;">
+    <section class="video-section">
         <div class="container">
             <h2>Watch: My Work, Approach & Solutions</h2>
             <p>A short introduction to who I am, how I work, and the results my clients have seen.</p>
 
-            <!-- VIDEO PLACEHOLDER: replace this div with your real video embed
-                 (e.g. <iframe> for YouTube/Vimeo, or a <video> tag) keeping class="video-frame" -->
-            <div class="video-frame video-placeholder">
-                <div class="video-placeholder-inner">
-                    <span class="video-play-icon" aria-hidden="true">&#9654;</span>
-                    <span>Video coming soon</span>
-                </div>
+            <div class="video-frame">
+                <video controls playsinline preload="metadata" title="Vastu consultation introduction">
+                    <source src="videos/consultation-intro.mov" type="video/quicktime">
+                    <source src="videos/consultation-intro.mov" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
@@ -85,7 +82,12 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
     <main class="form-section" id="booking-form">
         <div class="container">
             <div class="form-intro">
-                Thank you for reaching out to me. To understand your situation better, please answer the questions below as thoroughly as you can — the more detail you share, the better prepared I will be for your consultation. (Question 7 is optional.)
+                <p>Fill out this form with confidence. More than 60% of my Vastu consultations are conducted online, and over half of my clients choose this mode of consultation. With my structured and systematic approach, I can effectively analyze your property and guide you with personalized Vastu solutions remotely.</p>
+            </div>
+
+            <div class="form-intro form-intro-detail">
+                <p>Please describe your concerns in as much detail as possible. Whether you’re facing relationship challenges, delays in marriage, health concerns, financial stress, stuck payments, business deals not converting, difficulty selling or buying a property, disputes over ancestral property, career obstacles, or your child is struggling with studies or focus—share the symptoms you are experiencing. The more clearly you describe your situation, the better I can identify the root cause and provide personalized Vastu guidance to help you overcome those challenges.</p>
+                <p class="form-intro-note">(Question 7 is optional.)</p>
             </div>
 
             <form id="consultationForm" action="save_consultation" method="POST" class="consultation-form">
