@@ -52,7 +52,6 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
             <div class="hero-content">
                 <h1>Struggling with a problem in your home, office, or property? Let's find out if Vastu can help.</h1>
                 <p>This is a real, personalized consultation—not a generic sales pitch. Get actionable advice tailored to your space.</p>
-                <a href="#booking-form" class="cta-button">Book Your Consultation</a>
             </div>
 
             <div class="trust-section">
@@ -62,6 +61,8 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
                     <p>Expert Vastu Consultant</p>
                 </div>
             </div>
+
+            <a href="#booking-form" class="cta-button">Book Your Consultation</a>
         </div>
     </header>
 
@@ -81,12 +82,12 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
 
     <main class="form-section" id="booking-form">
         <div class="container">
-            <div class="form-intro">
-                <p>Fill out this form with confidence. More than 60% of my Vastu consultations are conducted online, and over half of my clients choose this mode of consultation. With my structured and systematic approach, I can effectively analyze your property and guide you with personalized Vastu solutions remotely.</p>
-            </div>
-
             <div class="form-intro form-intro-detail">
                 <p>Please describe your concerns in as much detail as possible. Whether you’re facing relationship challenges, delays in marriage, health concerns, financial stress, stuck payments, business deals not converting, difficulty selling or buying a property, disputes over ancestral property, career obstacles, or your child is struggling with studies or focus—share the symptoms you are experiencing. The more clearly you describe your situation, the better I can identify the root cause and provide personalized Vastu guidance to help you overcome those challenges.</p>
+            </div>
+
+            <div class="form-intro">
+                <p>Fill out this form with confidence. More than 60% of my Vastu consultations are conducted online, and over half of my clients choose this mode of consultation. With my structured and systematic approach, I can effectively analyze your property and guide you with personalized Vastu solutions remotely.</p>
                 <p class="form-intro-note">(Question 7 is optional.)</p>
             </div>
 

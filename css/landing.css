@@ -90,6 +90,7 @@ header {
   justify-content: center;
   gap: 15px;
   margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .consultant-photo {
@@ -200,6 +201,10 @@ header {
 }
 
 .form-intro-detail {
+  margin-bottom: 20px;
+}
+
+.form-intro:last-of-type {
   margin-bottom: 30px;
 }
 
