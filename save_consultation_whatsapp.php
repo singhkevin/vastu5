@@ -54,20 +54,6 @@ if ($q1 === '' || $q3 === '' || $q4 === '' || $q5 === '' || $q6_city === '' || $
     exit;
 }
 
-// Q1 needs at least 100 characters; Q5 and Q7 (if answered) need at least 20
-if (mb_strlen($q1) < 100) {
-    header('Location: /consultation?status=error&reason=too_short');
-    exit;
-}
-if (mb_strlen($q5) < 20) {
-    header('Location: /consultation?status=error&reason=too_short');
-    exit;
-}
-if ($q7 !== '' && mb_strlen($q7) < 20) {
-    header('Location: /consultation?status=error&reason=too_short');
-    exit;
-}
-
 // Q6 city/country: must look like place names
 if (!preg_match("/^[A-Za-z\s'\-]{2,50}$/", $q6_city)) {
     header('Location: /consultation?status=error&reason=invalid_location');

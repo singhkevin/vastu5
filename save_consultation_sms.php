@@ -69,20 +69,6 @@ if ($q1 === '' || $q3 === '' || $q4 === '' || $q5 === '') {
     exit;
 }
 
-// Q1 needs at least 100 characters; Q5 and Q7 (if answered) need at least 20
-if (mb_strlen($q1) < 100) {
-    header('Location: /consultation-sms.php?status=error&reason=too_short');
-    exit;
-}
-if (mb_strlen($q5) < 20) {
-    header('Location: /consultation-sms.php?status=error&reason=too_short');
-    exit;
-}
-if ($q7 !== '' && mb_strlen($q7) < 20) {
-    header('Location: /consultation-sms.php?status=error&reason=too_short');
-    exit;
-}
-
 // Q6 city/country: optional, but must look like place names if provided
 if ($q6_city !== '' && !preg_match("/^[A-Za-z\s'\-]{2,50}$/", $q6_city)) {
     header('Location: /consultation-sms.php?status=error&reason=invalid_location');

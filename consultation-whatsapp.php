@@ -100,10 +100,8 @@ $errorText = $errorMessages[$errorReason] ?? ($errorReason !== '' ? 'Something w
 
                 <div class="form-group">
                     <label for="q1">1. What made you contact me today? (What problem are you facing?) <span class="required">*</span></label>
-                    <textarea id="q1" name="q1" required minlength="100"
-                              title="Please write at least 100 characters."
-                              placeholder="Describe your situation in detail (minimum 100 characters)..."></textarea>
-                    <small class="char-hint"><span id="q1CharCount">0</span> / 100 characters minimum</small>
+                    <textarea id="q1" name="q1" required
+                              placeholder="Describe your situation in detail..."></textarea>
                 </div>
 
                 <div class="form-group">

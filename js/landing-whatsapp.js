@@ -33,20 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Live character counter for Q1
-    const q1Input = document.getElementById('q1');
-    const q1CharCount = document.getElementById('q1CharCount');
-    const Q1_MIN_LEN = 100;
-
-    if (q1Input && q1CharCount) {
-        q1Input.addEventListener('input', () => {
-            const len = q1Input.value.trim().length;
-            q1CharCount.textContent = len;
-            q1CharCount.parentElement.classList.toggle('char-hint-ok', len >= Q1_MIN_LEN);
-        });
-    }
-
-    // 4. WhatsApp OTP Verification
+    // 3. WhatsApp OTP Verification
     const phoneCountryCode = document.getElementById('phone_country_code');
     const phoneNumberInput = document.getElementById('phone_number');
     const phoneInput = document.getElementById('phone'); // hidden, combined value submitted to the server
@@ -205,17 +192,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isSubmitting) return;
 
-            const OPEN_MIN_LEN = 20;
             const missing = [];
-            if (form.q1 && form.q1.value.trim().length < Q1_MIN_LEN) missing.push('Question 1 (100+ characters)');
+            if (form.q1 && form.q1.value.trim() === '') missing.push('Question 1');
             if (form.q3 && form.q3.value === '') missing.push('Question 3');
             if (form.q4 && form.q4.value === '') missing.push('Question 4');
-            if (form.q5 && form.q5.value.trim().length < OPEN_MIN_LEN) missing.push('Question 5 (please add a bit more detail)');
+            if (form.q5 && form.q5.value.trim() === '') missing.push('Question 5');
             if (form.q6_city && form.q6_city.value.trim() === '') missing.push('Question 6 (City)');
             if (form.q6_country && form.q6_country.value === '') missing.push('Question 6 (Country)');
-            if (form.q7 && form.q7.value.trim() !== '' && form.q7.value.trim().length < OPEN_MIN_LEN) {
-                missing.push('Question 7 (please add a bit more detail, or leave it blank)');
-            }
 
             if (missing.length > 0) {
                 validationMessage.style.display = 'block';

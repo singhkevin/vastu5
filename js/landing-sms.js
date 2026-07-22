@@ -192,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isSubmitting) return;
 
-            const OPEN_MIN_LEN = 20;
             const missing = [];
             if (form.q1 && form.q1.value.trim() === '') missing.push('Question 1');
             if (form.q3 && form.q3.value === '') missing.push('Question 3');
@@ -200,9 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (form.q5 && form.q5.value.trim() === '') missing.push('Question 5');
             if (form.q6_city && form.q6_city.value.trim() === '') missing.push('Question 6 (City)');
             if (form.q6_country && form.q6_country.value === '') missing.push('Question 6 (Country)');
-            if (form.q7 && form.q7.value.trim() !== '' && form.q7.value.trim().length < OPEN_MIN_LEN) {
-                missing.push('Question 7 (please add a bit more detail, or leave it blank)');
-            }
 
             if (missing.length > 0) {
                 validationMessage.style.display = 'block';
